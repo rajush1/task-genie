@@ -1,0 +1,38 @@
+export const PRODUCT = {
+  name: "Task Genie",
+  tagline: "Remote work, built on trust.",
+  supportEmail: "hello@taskgenie.example",
+} as const;
+export const ROUTES = {
+  home: "/",
+  jobs: "/jobs",
+  job: (id: string) => `/jobs/${id}`,
+  howItWorks: "/how-it-works",
+  pricing: "/pricing",
+  login: "/login",
+  signup: "/signup",
+  dashboard: "/dashboard",
+  profile: "/profile",
+  verification: "/profile/verification",
+  saved: "/saved-jobs",
+  applications: "/applications",
+  settings: "/settings",
+  payments: "/payments",
+  talent: "/employer/talent",
+  postJob: "/employer/post-job",
+  pipeline: "/employer/pipeline",
+  messages: "/messages",
+  employerMessages: "/employer/messages",
+  employerJobs: "/employer/jobs",
+  employerBilling: "/employer/billing",
+  employerSettings: "/employer/settings",
+  shortlist: "/employer/shortlist",
+  trust: "/trust",
+  support: "/support",
+  about: "/about",
+} as const;
+export const FEATURES = {
+  paypalSandbox: true,
+  persistentDemoState: false,
+  employerPipeline: true,
+} as const;

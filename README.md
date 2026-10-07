@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Task Genie
 
-## Getting Started
+Task Genie is a production-minded prototype for a two-sided remote hiring marketplace connecting Filipino professionals with global employers. It uses trust-first minimalism for public and job-seeker experiences, with a denser recruiting command center for employers.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). This is a static, populated product preview: no account or real credentials are required. Forms are prefilled and intentionally skip validation. Each fresh page visit restores its seeded data; interactions remain local and never submit applications, send real messages, or charge payments.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/login`, `/signup`, `/about`, `/trust`, `/support`
+- Job seeker: `/dashboard`, `/profile`, `/profile/verification`, `/saved-jobs`, `/applications`, `/messages`, `/payments`, `/settings`
+- Employer: `/employer/talent`, `/employer/shortlist`, `/employer/post-job`, `/employer/pipeline`, `/employer/messages`, `/employer/jobs`, `/employer/billing`, `/employer/settings`
 
-## Learn More
+## Architecture
 
-To learn more about Next.js, take a look at the following resources:
+- `src/config`: product constants, routes, and feature switches
+- `src/domain`: typed marketplace models
+- `src/data`: replaceable fixtures standing in for repository/API data
+- `src/lib`: pure search and profile-completeness rules with tests
+- `src/components`: interactive prototype surfaces and shared UI
+- `src/server/paypal`: reserved server-only payment adapter boundary (not deployed to Pages)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The prototype uses a typed, in-memory preview store. Every screen includes complete professional content and representative records. Job responsibilities, compensation, schedules, skills, and direct-hiring flows take their content structure from [OnlineJobs.ph](https://www.onlinejobs.ph/), without copying real people's profiles or implying live job availability. Search falls back to relevant recommendations instead of an empty screen. In production, replace fixtures with authenticated repositories while retaining the domain contracts.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## PayPal sandbox boundary
 
-## Deploy on Vercel
+The UI uses preview-only billing and does not call a payment endpoint. The reserved server adapter is not deployed on GitHub Pages; it never creates or captures a live payment. Before production, implement server-side OAuth exchange, idempotent create/capture endpoints, webhook verification, subscription reconciliation, and audited entitlement updates. Do not add real credentials to the prototype.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Quality checks
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm check
+```
+
+This runs ESLint, TypeScript, Vitest, and a production build.
+
+## Before production
+
+Add real authentication and authorization, database repositories, file scanning/storage, verification vendors, moderation tools, transactional messaging, PayPal sandbox webhooks, analytics consent, rate limiting, audit logs, and end-to-end tests. All names, companies, and data in this repository are fictional.
