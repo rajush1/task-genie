@@ -6,6 +6,7 @@ import "./spacecrew-landing.css";
 import "./apply-points.css";
 import "./freelancer-waitlist.css";
 import "./employer-organization.css";
+import "./ui-polish.css";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
