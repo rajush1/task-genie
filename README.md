@@ -56,7 +56,9 @@ A single visitor's entry is stored locally under `task-genie-freelancer-waitlist
 
 Every route uses the supplied SpaceCrew-inspired Task Genie skin. Its extracted light/dark theme is in `src/app/spacecrew.css`, with cross-route adaptations in `src/app/spacecrew-app.css`. The supplied logo variants live in `public/brand`. The theme toggle saves the visitor's preference locally; it does not affect account data.
 
-Shared form spacing, custom native-select chevrons, mobile control sizing, and dark inset surfaces are normalized in `src/app/ui-polish.css`, loaded last after page-specific styles. Keep dropdown arrow gutters intact when adding new select controls. Auth cards use explicit inner padding; password fields show a unified focus state. The UI pass covers all 53 product routes at desktop, tablet, and narrow-phone sizes, with light/dark spot checks for interactive forms and inset panels.
+Shared form spacing, custom native-select chevrons, mobile control sizing, and dark inset surfaces are normalized in `src/app/ui-polish.css`, loaded after page-specific styles. Keep dropdown arrow gutters intact when adding new select controls. Auth cards use explicit inner padding; password fields show a unified focus state. The UI pass covers all 53 product routes at desktop, tablet, and narrow-phone sizes, with light/dark spot checks for interactive forms and inset panels.
+
+`src/app/brand-surfaces.css` shares the waitlist's ambient purple/pink background with signup/login, public marketing heroes, information-page headers, and promotional banners. It is loaded last to preserve heading and body-text contrast in both themes. Forms, pricing controls, and data cards retain their neutral themed surfaces.
 
 ## PayPal sandbox boundary
 

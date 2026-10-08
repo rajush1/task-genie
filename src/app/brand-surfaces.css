@@ -1,0 +1,92 @@
+/* Reuse the waitlist's ambient purple shade on public brand surfaces. */
+:root {
+  --brand-ambient-background:
+    radial-gradient(ellipse at 2% 4%, #9333ea4d, transparent 55%),
+    radial-gradient(ellipse at 40% 98%, #ec489933, transparent 42%),
+    linear-gradient(130deg, #151020, #151325 60%, #0f1020);
+  --brand-ambient-ink: #fff;
+  --brand-ambient-muted: #d2c9e1;
+  --brand-ambient-accent: #e6b2ff;
+}
+
+:root .auth-surface,
+:root .marketing-hero-surface,
+:root .waitlist-hero,
+:root .information-page > .page-heading,
+:root .freelancer-waitlist-promo,
+:root .cta-banner {
+  background: var(--brand-ambient-background);
+  color: var(--brand-ambient-ink);
+}
+
+/* Let the full-width shade flow behind the story and the inset form card. */
+:root .auth-story {
+  background: transparent;
+}
+:root .auth-form {
+  color: var(--ink);
+}
+:root .auth-story h1,
+:root .auth-story-card strong,
+:root .marketing-hero h1,
+:root .information-page > .page-heading h1,
+:root .freelancer-waitlist-promo h2,
+:root .cta-banner h2 {
+  color: var(--brand-ambient-ink);
+}
+:root .auth-story > p,
+:root .auth-story-card p,
+:root .marketing-hero > p,
+:root .information-page > .page-heading p,
+:root .freelancer-waitlist-promo p,
+:root .cta-banner p {
+  color: var(--brand-ambient-muted);
+}
+:root .auth-story .eyebrow,
+:root .auth-benefits svg,
+:root .auth-story-card > svg,
+:root .marketing-hero .eyebrow,
+:root .information-page > .page-heading .eyebrow,
+:root .freelancer-waitlist-promo .eyebrow,
+:root .cta-banner .eyebrow {
+  color: var(--brand-ambient-accent);
+}
+:root .auth-story h1 em,
+:root .marketing-hero h1 em {
+  color: var(--brand-ambient-accent);
+  text-decoration-color: currentColor;
+}
+:root .auth-story-card {
+  background: #ffffff08;
+  border-color: #ffffff26;
+}
+
+.marketing-hero-surface {
+  margin-bottom: 32px;
+}
+.marketing-hero-surface .marketing-hero {
+  padding-block: clamp(48px, 6vw, 76px);
+}
+.information-page > .page-heading {
+  padding: clamp(24px, 4vw, 42px);
+  border-radius: 18px;
+}
+:root .freelancer-waitlist-promo {
+  border-color: #ffffff26;
+}
+:root .freelancer-waitlist-promo .waitlist-promo-icon {
+  background: #ffffff0d;
+  border-color: #ffffff26;
+  color: var(--brand-ambient-accent);
+}
+:root .marketing-hero .button.secondary,
+:root .freelancer-waitlist-promo .button.secondary {
+  color: #f5edff;
+  background: #ffffff0a;
+  border-color: #ffffff60;
+}
+:root .marketing-hero .button.secondary:hover,
+:root .freelancer-waitlist-promo .button.secondary:hover {
+  background: #ffffff19;
+  border-color: #ffffffa0;
+}

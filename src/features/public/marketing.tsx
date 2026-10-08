@@ -52,26 +52,28 @@ const faq = [
 export function HowItWorks() {
   return (
     <div className="marketing-page">
-      <section className="container marketing-hero">
-        <span className="eyebrow">FROM FIRST SEARCH TO FIRST DAY</span>
-        <h1>
-          Good work starts with
-          <br />
-          <em>a good connection.</em>
-        </h1>
-        <p>
-          Find professionals worldwide, discover remote roles, and build working
-          relationships with clear expectations from day one.
-        </p>
-        <div className="button-row">
-          <Link className="button" href={ROUTES.talent}>
-            I’m hiring <Users size={17} />
-          </Link>
-          <Link className="button secondary" href={ROUTES.jobs}>
-            I’m looking for work <ArrowRight size={17} />
-          </Link>
-        </div>
-      </section>
+      <div className="marketing-hero-surface">
+        <section className="container marketing-hero">
+          <span className="eyebrow">FROM FIRST SEARCH TO FIRST DAY</span>
+          <h1>
+            Good work starts with
+            <br />
+            <em>a good connection.</em>
+          </h1>
+          <p>
+            Find professionals worldwide, discover remote roles, and build
+            working relationships with clear expectations from day one.
+          </p>
+          <div className="button-row">
+            <Link className="button" href={ROUTES.talent}>
+              I’m hiring <Users size={17} />
+            </Link>
+            <Link className="button secondary" href={ROUTES.jobs}>
+              I’m looking for work <ArrowRight size={17} />
+            </Link>
+          </div>
+        </section>
+      </div>
       <section className="container how-grid">
         {[
           {
@@ -205,32 +207,34 @@ export function Pricing() {
   ];
   return (
     <div className="marketing-page">
-      <section className="container marketing-hero">
-        <span className="eyebrow">PLANS THAT WORK AS HARD AS YOU DO</span>
-        <h1>
-          Your next hire.
-          <br />
-          <em>A straightforward plan.</em>
-        </h1>
-        <p>
-          Tools to find and connect with the right people. Agree on salaries
-          directly, with no salary markup.
-        </p>
-        <div className="billing-toggle">
-          <button
-            className={cx(!annual && "active")}
-            onClick={() => setAnnual(false)}
-          >
-            Monthly
-          </button>
-          <button
-            className={cx(annual && "active")}
-            onClick={() => setAnnual(true)}
-          >
-            Annually <span>Save more</span>
-          </button>
-        </div>
-      </section>
+      <div className="marketing-hero-surface">
+        <section className="container marketing-hero">
+          <span className="eyebrow">PLANS THAT WORK AS HARD AS YOU DO</span>
+          <h1>
+            Your next hire.
+            <br />
+            <em>A straightforward plan.</em>
+          </h1>
+          <p>
+            Tools to find and connect with the right people. Agree on salaries
+            directly, with no salary markup.
+          </p>
+          <div className="billing-toggle">
+            <button
+              className={cx(!annual && "active")}
+              onClick={() => setAnnual(false)}
+            >
+              Monthly
+            </button>
+            <button
+              className={cx(annual && "active")}
+              onClick={() => setAnnual(true)}
+            >
+              Annually <span>Save more</span>
+            </button>
+          </div>
+        </section>
+      </div>
       <div className="container pricing-grid">
         {plans.map((plan) => (
           <article
