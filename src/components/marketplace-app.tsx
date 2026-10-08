@@ -17,6 +17,7 @@ import {
 } from "@/features/public";
 import {
   ApplicationsPage,
+  ApplyPointsPage,
   Dashboard,
   Payments,
   ProfilePage,
@@ -37,7 +38,7 @@ const classNames = (...values: (string | false | undefined)[]) =>
   values.filter(Boolean).join(" ");
 
 export function MarketplaceApp({ path }: { path: string }) {
-  const [state, setState] = useDemoState();
+  const [state, setState] = useDemoState(path);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [initialQuery, setInitialQuery] = useState("");
 
@@ -56,6 +57,7 @@ export function MarketplaceApp({ path }: { path: string }) {
     "/profile",
     "/saved-jobs",
     "/applications",
+    "/apply-points",
     "/settings",
     "/payments",
     "/messages",
@@ -74,7 +76,14 @@ export function MarketplaceApp({ path }: { path: string }) {
         setMobileOpen={setMobileOpen}
       />
       <div className={workspace ? "workspace" : ""}>
-        {workspace && <WorkspaceSidebar path={path} employer={isEmployer} />}
+        {workspace && (
+          <WorkspaceSidebar
+            path={path}
+            employer={isEmployer}
+            applyPoints={state.applyPoints.balance}
+            applicationCount={state.appliedJobIds.length}
+          />
+        )}
         <main id="main" className={workspace ? "workspace-main" : ""}>
           {renderRoute(path, state, setState, initialQuery)}
         </main>
@@ -122,6 +131,7 @@ function renderRoute(
   if (path === ROUTES.saved)
     return <SavedPage state={state} setState={setState} />;
   if (path === ROUTES.applications) return <ApplicationsPage state={state} />;
+  if (path === ROUTES.applyPoints) return <ApplyPointsPage state={state} />;
   if (path === ROUTES.payments) return <Payments />;
   if (path === ROUTES.settings) return <SettingsPage />;
   if (path === ROUTES.employerSettings) return <SettingsPage employer />;

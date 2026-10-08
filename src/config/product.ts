@@ -17,6 +17,7 @@ export const ROUTES = {
   verification: "/profile/verification",
   saved: "/saved-jobs",
   applications: "/applications",
+  applyPoints: "/apply-points",
   settings: "/settings",
   payments: "/payments",
   talent: "/employer/talent",
@@ -34,6 +35,6 @@ export const ROUTES = {
 } as const;
 export const FEATURES = {
   paypalSandbox: true,
-  persistentDemoState: false,
+  persistentDemoState: true,
   employerPipeline: true,
 } as const;

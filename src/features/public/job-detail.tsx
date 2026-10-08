@@ -10,6 +10,7 @@ import {
   Check,
   CheckCircle2,
   Clock3,
+  Coins,
   FileText,
   Globe,
   Send,
@@ -19,6 +20,7 @@ import { jobs } from "@/data/fixtures";
 import { ROUTES } from "@/config/product";
 import type { MarketplaceState } from "@/domain/types";
 import type { DemoStateUpdater } from "@/state/use-demo-state";
+import { submitJobApplication } from "@/lib/apply-points";
 import {
   Avatar,
   Badge,
@@ -39,6 +41,7 @@ export function JobDetail({
 }) {
   const job = jobs.find((item) => item.id === id) ?? jobs[0];
   const saved = state.savedJobIds.includes(job.id);
+  const applied = state.appliedJobIds.includes(job.id);
   const [reported, setReported] = useState(false);
   return (
     <div className="container detail-page">
@@ -136,8 +139,24 @@ export function JobDetail({
               Introduce yourself and show the team what you can bring to the
               role.
             </p>
-            <Link className="button full" href={`/jobs/${job.id}/apply`}>
-              Apply for this role <ArrowRight size={17} />
+            <Link
+              className="button full"
+              href={applied ? ROUTES.applications : `/jobs/${job.id}/apply`}
+            >
+              {applied ? "View your application" : "Apply for this role"}{" "}
+              <ArrowRight size={17} />
+            </Link>
+            <Link className="points-inline-balance" href={ROUTES.applyPoints}>
+              <Coins size={18} />
+              <span>
+                <strong>{state.applyPoints.balance} Apply Points</strong>
+                <small>
+                  {applied
+                    ? "You’ve already applied for this role."
+                    : "Choose at least 1 point when applying."}
+                </small>
+              </span>
+              <ArrowRight size={15} />
             </Link>
             <button
               className="button secondary full"
@@ -155,7 +174,7 @@ export function JobDetail({
             </button>
             <p className="quiet-note">
               <ShieldCheck size={14} />
-              Applications are always free.
+              Free to apply. Points are earned, never purchased.
             </p>
           </div>
           <div className="card company-card">
@@ -202,6 +221,7 @@ export function JobDetail({
 
 export function ApplyPage({
   id,
+  state,
   setState,
 }: {
   id: string;
@@ -210,18 +230,25 @@ export function ApplyPage({
 }) {
   const job = jobs.find((item) => item.id === id) ?? jobs[0];
   const [sent, setSent] = useState(false);
+  const [points, setPoints] = useState(5);
+  const [error, setError] = useState("");
+  const application = state.jobApplications.find(
+    (item) => item.jobId === job.id,
+  );
+  const alreadyApplied = state.appliedJobIds.includes(job.id);
+  const selectedPoints = Math.min(points, state.applyPoints.balance);
   return (
     <div className="container application-page">
       <Link className="back-link" href={ROUTES.job(job.id)}>
         <ArrowLeft size={16} />
         Back to the role
       </Link>
-      {sent ? (
+      {sent || alreadyApplied ? (
         <div className="confirmation card">
           <span className="success-icon">
             <CheckCircle2 size={34} />
           </span>
-          <Badge>APPLICATION SENT</Badge>
+          <Badge>{sent ? "APPLICATION SENT" : "ALREADY APPLIED"}</Badge>
           <h1>You’ve taken the next step.</h1>
           <p>
             Your application for <strong>{job.title}</strong> is ready for{" "}
@@ -236,15 +263,30 @@ export function ApplyPage({
                 {job.employmentType} · {job.salary}
               </small>
             </div>
-            <Badge>Sent today</Badge>
+            <Badge>
+              {application ? `${application.pointsUsed} AP used` : "Submitted"}
+            </Badge>
           </div>
+          <p className="points-receipt">
+            <Coins size={18} />
+            {application ? `${application.pointsUsed} points used · ` : ""}
+            {state.applyPoints.balance} AP remaining. This role won’t charge you
+            twice.
+          </p>
+          {application && (
+            <details className="application-sent-copy">
+              <summary>Review your introduction</summary>
+              <strong>{application.subject}</strong>
+              <p>{application.message}</p>
+            </details>
+          )}
           <div className="button-row">
             <Link className="button" href={ROUTES.applications}>
               View applications <ArrowRight size={16} />
             </Link>
-            <button className="button secondary" onClick={() => setSent(false)}>
-              Review application
-            </button>
+            <Link className="button secondary" href={ROUTES.jobs}>
+              Explore more roles
+            </Link>
           </div>
         </div>
       ) : (
@@ -262,13 +304,26 @@ export function ApplyPage({
               className="form-card"
               onSubmit={(event) => {
                 event.preventDefault();
-                setState((previous) => ({
-                  ...previous,
-                  appliedJobIds: [
-                    ...new Set([...previous.appliedJobIds, job.id]),
-                  ],
-                }));
-                setSent(true);
+                const form = new FormData(event.currentTarget);
+                const details = {
+                  subject: String(form.get("subject") ?? ""),
+                  message: String(form.get("message") ?? ""),
+                };
+                setState((previous) => {
+                  const latest = submitJobApplication(
+                    previous,
+                    job,
+                    selectedPoints,
+                    details,
+                  );
+                  if (!latest.ok) {
+                    setError(latest.message);
+                    return previous;
+                  }
+                  setError("");
+                  setSent(true);
+                  return latest.state;
+                });
               }}
             >
               <div className="form-section-heading">
@@ -280,11 +335,13 @@ export function ApplyPage({
               </div>
               <TextField
                 label="Subject"
+                name="subject"
                 defaultValue={`Application: ${job.title} — Ana Mendoza`}
               />
               <label className="field-label">
                 Message
                 <textarea
+                  name="message"
                   placeholder="Introduce yourself and share the experience you would bring to the team."
                   defaultValue={`Hi ${job.company} team,\n\nI am interested in the ${job.title} opportunity. I have five years of experience supporting remote teams with executive scheduling, customer operations, and clear process documentation.\n\nIn my most recent role, I introduced a support playbook that reduced our first-response time from 8 hours to 2 hours. I am comfortable with ${job.skills.slice(0, 2).join(" and ")} and would welcome a conversation about your team's priorities.\n\nMy portfolio includes an operations dashboard and a workflow checklist. I can start on October 19 and am comfortable with the working schedule listed.\n\nBest,\nAna Mendoza`}
                 />
@@ -312,22 +369,129 @@ export function ApplyPage({
                 Include my Task Genie profile and portfolio with this
                 application.
               </label>
+              <section
+                className="points-picker"
+                aria-labelledby="points-picker-heading"
+              >
+                <div className="points-picker-heading">
+                  <span className="points-symbol">
+                    <Coins size={23} />
+                  </span>
+                  <div>
+                    <h2 id="points-picker-heading">
+                      Show your interest with Apply Points
+                    </h2>
+                    <p>
+                      Employers see the points you choose. More points signal
+                      interest, not a stronger qualification.
+                    </p>
+                  </div>
+                </div>
+                <div className="points-picker-control">
+                  <label className="field-label">
+                    Points to use
+                    <select
+                      name="applyPoints"
+                      value={selectedPoints}
+                      disabled={
+                        !state.profile.verified || !state.applyPoints.balance
+                      }
+                      onChange={(event) =>
+                        setPoints(Number(event.target.value))
+                      }
+                    >
+                      {state.applyPoints.balance ? (
+                        Array.from(
+                          { length: state.applyPoints.balance },
+                          (_, index) => index + 1,
+                        ).map((amount) => (
+                          <option value={amount} key={amount}>
+                            {amount} AP
+                          </option>
+                        ))
+                      ) : (
+                        <option value={0}>0 AP available</option>
+                      )}
+                    </select>
+                  </label>
+                  <div
+                    className="points-quick-picks"
+                    aria-label="Quick point choices"
+                  >
+                    {[1, 5, 10, 20]
+                      .filter((amount) => amount <= state.applyPoints.balance)
+                      .map((amount) => (
+                        <button
+                          type="button"
+                          key={amount}
+                          aria-pressed={selectedPoints === amount}
+                          onClick={() => setPoints(amount)}
+                        >
+                          {amount} AP
+                        </button>
+                      ))}
+                  </div>
+                </div>
+                <div className="points-spending-summary">
+                  <span>
+                    Available <strong>{state.applyPoints.balance} AP</strong>
+                  </span>
+                  <ArrowRight size={16} />
+                  <span>
+                    After applying{" "}
+                    <strong>
+                      {state.applyPoints.balance - selectedPoints} AP
+                    </strong>
+                  </span>
+                </div>
+                {!state.profile.verified ? (
+                  <p className="points-attention">
+                    Verify your account before earning points or applying.{" "}
+                    <Link href={ROUTES.verification}>
+                      Complete prototype verification
+                    </Link>
+                    .
+                  </p>
+                ) : state.applyPoints.balance === 0 ? (
+                  <p className="points-attention">
+                    You’ve used your points. Return on a new day for up to 10
+                    free AP.{" "}
+                    <Link href={ROUTES.applyPoints}>View points activity</Link>.
+                  </p>
+                ) : (
+                  <p className="points-picker-note">
+                    At least 1 AP per application. Points are deducted on
+                    submission and aren’t refunded if you’re not selected.{" "}
+                    <Link href={ROUTES.applyPoints}>How points work</Link>
+                  </p>
+                )}
+              </section>
+              {error && (
+                <p className="points-attention" role="alert">
+                  {error}
+                </p>
+              )}
               <div className="form-actions">
                 <span className="quiet-note">
-                  A clear, personal introduction goes a long way.
+                  Preview only. No real application is sent.
                 </span>
-                <button className="button">
-                  Send application <Send size={16} />
+                <button
+                  className="button"
+                  disabled={!state.profile.verified || selectedPoints < 1}
+                >
+                  Send application · {selectedPoints} AP <Send size={16} />
                 </button>
               </div>
             </form>
             <aside className="card application-preview">
               <Avatar name="Ana Mendoza" tone="coral" large />
               <h3>Ana Mendoza</h3>
-              <p>Executive Virtual Assistant</p>
-              <Badge>
+              <p>{state.profile.headline}</p>
+              <Badge tone={state.profile.verified ? "green" : "neutral"}>
                 <BadgeCheck size={14} />
-                Verified profile
+                {state.profile.verified
+                  ? "Verified profile"
+                  : "Verification needed"}
               </Badge>
               <dl>
                 <div>

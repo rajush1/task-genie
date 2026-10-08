@@ -33,7 +33,7 @@ const faq = [
   },
   {
     q: "Do job seekers pay to apply?",
-    a: "Browsing opportunities, creating a profile, and applying for work are free for job seekers. An employer should never ask you to pay an application fee.",
+    a: "Yes, applying is free—no application fees or paid points. Verified professionals receive 10 free Apply Points on their first visit each day, up to a balance of 60. Choose at least 1 point when applying to show your interest. Unused points carry over; you do not need to apply to earn them.",
   },
   {
     q: "What should I include in my profile?",

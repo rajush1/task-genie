@@ -559,10 +559,37 @@ export const candidates: Candidate[] = [
   portfolio: ["Operations playbook", "Weekly performance dashboard"],
   ...candidate,
 }));
+export const demoJobSeeker: Candidate = {
+  id: "ana",
+  name: "Ana Mendoza",
+  role: "Executive Virtual Assistant | Shopify, Notion & Customer Support",
+  location: "Toronto, Canada · UTC−4",
+  country: "Canada",
+  availability: "Available now · 40 hrs/week",
+  desiredPay: "US$1,200 / month",
+  lastActive: "Active now",
+  verified: true,
+  english: "C1 · Advanced",
+  responseTime: "Within 2 hours",
+  skills: [
+    "Executive support",
+    "Shopify",
+    "Notion",
+    "Google Workspace",
+    "Customer support",
+  ],
+  bio: "I support founders and e-commerce teams with calendar management, customer care, and documented workflows. Over the past five years, I have managed executive schedules across three time zones, maintained Shopify catalogs, and built a support playbook that reduced first-response time from 8 hours to 2 hours. I work proactively, communicate clearly, and keep the details moving.",
+  match: 94,
+  avatarTone: "coral",
+  experience: "5 years",
+  education: "BS Business Administration",
+  portfolio: ["E-commerce operations dashboard", "Customer support playbook"],
+};
 export const initialApplications: Application[] = candidates.map(
   (candidate, index) => ({
     id: `app-${index + 1}`,
     candidateId: candidate.id,
+    applyPoints: [12, 8, 20, 6, 15, 10, 3, 25][index],
     jobTitle: [
       "Executive Assistant",
       "Customer Operations Specialist",

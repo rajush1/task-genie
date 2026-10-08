@@ -207,6 +207,7 @@ export function ProfilePage({
 }
 
 export function VerificationPage({
+  state,
   setState,
 }: {
   state: MarketplaceState;
@@ -224,7 +225,9 @@ export function VerificationPage({
         {[
           {
             title: "Identity verification",
-            text: "Identity check completed on October 5, 2026.",
+            text: state.profile.verified
+              ? "Identity check completed on October 5, 2026."
+              : "Complete the prototype verification to unlock daily Apply Points.",
             icon: BadgeCheck,
           },
           {
@@ -251,12 +254,42 @@ export function VerificationPage({
               <h3>{title}</h3>
               <p>{text}</p>
             </div>
-            <Badge>
+            <Badge
+              tone={
+                title === "Identity verification" && !state.profile.verified
+                  ? "neutral"
+                  : "green"
+              }
+            >
               <Check size={13} />
-              Complete
+              {title === "Identity verification" && !state.profile.verified
+                ? "Pending"
+                : "Complete"}
             </Badge>
           </article>
         ))}
+      </div>
+      <div className="notice notice-blue">
+        <ShieldCheck size={20} />
+        <span>
+          {state.profile.verified
+            ? "Your verified profile earns up to 10 Apply Points on the first visit each day, with a maximum balance of 60."
+            : "Only verified accounts can earn Apply Points and apply for roles."}{" "}
+          <Link href={ROUTES.applyPoints}>View Apply Points</Link>
+        </span>
+        {!state.profile.verified && (
+          <button
+            className="button secondary"
+            onClick={() =>
+              setState((previous) => ({
+                ...previous,
+                profile: { ...previous.profile, verified: true },
+              }))
+            }
+          >
+            Complete prototype verification
+          </button>
+        )}
       </div>
       <div className="resume-layout">
         <section className="card resume-card">

@@ -9,6 +9,7 @@ import {
   Bookmark,
   BriefcaseBusiness,
   ChevronDown,
+  Coins,
   CreditCard,
   FileText,
   House,
@@ -224,6 +225,7 @@ export function Header({
                     ["My profile", ROUTES.profile],
                     ["Saved jobs", ROUTES.saved],
                     ["Applications", ROUTES.applications],
+                    ["Apply Points", ROUTES.applyPoints],
                     ["Payments", ROUTES.payments],
                   ]
               : [
@@ -249,9 +251,13 @@ export function Header({
 export function WorkspaceSidebar({
   path,
   employer,
+  applyPoints,
+  applicationCount,
 }: {
   path: string;
   employer: boolean;
+  applyPoints: number;
+  applicationCount: number;
 }) {
   const links = employer
     ? [
@@ -289,7 +295,13 @@ export function WorkspaceSidebar({
           label: "Applications",
           href: ROUTES.applications,
           icon: FileText,
-          count: "4",
+          count: String(applicationCount),
+        },
+        {
+          label: "Apply Points",
+          href: ROUTES.applyPoints,
+          icon: Coins,
+          count: String(applyPoints),
         },
         {
           label: "Messages",
@@ -390,6 +402,7 @@ export function Footer({ path }: { path: string }) {
           <Link href={ROUTES.jobs}>Find remote jobs</Link>
           <Link href={ROUTES.profile}>Build your profile</Link>
           <Link href={ROUTES.dashboard}>Your workspace</Link>
+          <Link href={ROUTES.applyPoints}>How Apply Points work</Link>
           <Link href={ROUTES.support}>Career resources</Link>
         </div>
         <div>

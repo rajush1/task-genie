@@ -13,6 +13,7 @@ import {
 import type { MarketplaceState } from "@/domain/types";
 import { jobs } from "@/data/fixtures";
 import { ROUTES } from "@/config/product";
+import { ApplyPointsSummary } from "./apply-points";
 import {
   AppLayout,
   Avatar,
@@ -56,6 +57,7 @@ export function Dashboard({ state }: { state: MarketplaceState }) {
           icon={<MessageSquare size={18} />}
         />
       </div>
+      <ApplyPointsSummary state={state} compact />
       <div className="dashboard-feature-grid">
         <section className="profile-overview card">
           <div className="profile-overview-top">

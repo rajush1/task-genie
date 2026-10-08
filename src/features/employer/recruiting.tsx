@@ -7,21 +7,33 @@ import {
   BriefcaseBusiness,
   CalendarDays,
   Clock3,
+  Coins,
   FileText,
   Plus,
   Users,
 } from "lucide-react";
-import { candidates, initialApplications, jobs } from "@/data/fixtures";
+import {
+  candidates,
+  demoJobSeeker,
+  initialApplications,
+  jobs,
+} from "@/data/fixtures";
 import { ROUTES } from "@/config/product";
-import type { MarketplaceState, PipelineStage } from "@/domain/types";
+import type {
+  Application,
+  MarketplaceState,
+  PipelineStage,
+} from "@/domain/types";
 import type { DemoStateUpdater } from "@/state/use-demo-state";
 import {
   AppLayout,
   Avatar,
   Badge,
+  Location,
   Metric,
   Notice,
   PageHeading,
+  PortfolioTiles,
   SkillTags,
 } from "@/components/shared";
 
@@ -37,6 +49,40 @@ export function Pipeline({
     : initialApplications;
   const stages: PipelineStage[] = ["New", "Shortlisted", "Interview", "Offer"];
   const [notice, setNotice] = useState("");
+  const [selectedApplicationId, setSelectedApplicationId] = useState<
+    string | null
+  >(null);
+  const candidateFor = (application: Application) =>
+    application.candidateId === demoJobSeeker.id
+      ? {
+          ...demoJobSeeker,
+          role: state.profile.headline,
+          bio: state.profile.bio,
+          skills: state.profile.skills,
+          verified: state.profile.verified,
+        }
+      : (candidates.find((item) => item.id === application.candidateId) ??
+        candidates[0]);
+  const latestSubmission = [...state.jobApplications].sort((left, right) =>
+    right.submittedAt.localeCompare(left.submittedAt),
+  )[0];
+  const selectedApplication =
+    applications.find(
+      (application) => application.id === selectedApplicationId,
+    ) ??
+    applications.find(
+      (application) =>
+        application.candidateId === demoJobSeeker.id &&
+        application.jobId === latestSubmission?.jobId,
+    ) ??
+    applications[0];
+  const selectedCandidate = candidateFor(selectedApplication);
+  const selectedIntroduction =
+    selectedApplication.candidateId === demoJobSeeker.id
+      ? state.jobApplications.find(
+          (application) => application.jobId === selectedApplication.jobId,
+        )
+      : undefined;
   const move = (id: string, stage: PipelineStage) => {
     setState((previous) => ({
       ...previous,
@@ -94,6 +140,11 @@ export function Pipeline({
         </div>
         <Badge tone="neutral">Updated today</Badge>
       </div>
+      <p className="apply-points-explainer">
+        <Coins size={16} />
+        Points chosen by the applicant to show interest; review skills and
+        experience separately.
+      </p>
       <div className="pipeline-board">
         {stages.map((stage) => (
           <section className="pipeline-column" key={stage}>
@@ -110,10 +161,7 @@ export function Pipeline({
             {applications
               .filter((application) => application.stage === stage)
               .map((application) => {
-                const candidate =
-                  candidates.find(
-                    (item) => item.id === application.candidateId,
-                  ) ?? candidates[0];
+                const candidate = candidateFor(application);
                 const next = stages[stages.indexOf(stage) + 1];
                 return (
                   <article className="pipeline-card" key={application.id}>
@@ -128,11 +176,24 @@ export function Pipeline({
                       </span>
                     </div>
                     <h3>{application.jobTitle}</h3>
+                    <span className="application-points">
+                      <Badge tone="neutral">
+                        <Coins size={13} />
+                        {application.applyPoints} AP
+                      </Badge>
+                    </span>
                     <SkillTags skills={candidate.skills.slice(0, 2)} />
                     <p>
                       <Clock3 size={13} />
                       Updated today
                     </p>
+                    <a
+                      className="application-review-link"
+                      href="#application-detail"
+                      onClick={() => setSelectedApplicationId(application.id)}
+                    >
+                      Review application <FileText size={14} />
+                    </a>
                     {next ? (
                       <button onClick={() => move(application.id, next)}>
                         Move to {next}
@@ -167,6 +228,81 @@ export function Pipeline({
           </section>
         ))}
       </div>
+      <section
+        className="pipeline-application-detail card"
+        id="application-detail"
+        aria-labelledby="application-detail-title"
+      >
+        <div className="application-detail-heading">
+          <div>
+            <span className="eyebrow">APPLICATION DETAILS</span>
+            <h2 id="application-detail-title">{selectedCandidate.name}</h2>
+            <p>{selectedApplication.jobTitle}</p>
+          </div>
+          <Badge tone="neutral">
+            <Coins size={15} />
+            {selectedApplication.applyPoints} Apply Points
+          </Badge>
+        </div>
+        <p className="apply-points-explainer">
+          Points chosen by the applicant to show interest; review skills and
+          experience separately.
+        </p>
+        {selectedIntroduction && (
+          <section className="application-introduction">
+            <span className="eyebrow">APPLICANT INTRODUCTION</span>
+            <h3>{selectedIntroduction.subject}</h3>
+            <time dateTime={selectedIntroduction.submittedAt}>
+              Submitted{" "}
+              {new Date(selectedIntroduction.submittedAt).toLocaleDateString(
+                "en-US",
+                { month: "long", day: "numeric", year: "numeric" },
+              )}
+            </time>
+            <p className="application-introduction-message">
+              {selectedIntroduction.message}
+            </p>
+          </section>
+        )}
+        <div className="application-detail-body">
+          <div>
+            <Location>{selectedCandidate.location}</Location>
+            <h3>{selectedCandidate.role}</h3>
+            <p>{selectedCandidate.bio}</p>
+            <SkillTags skills={selectedCandidate.skills} />
+          </div>
+          <div className="candidate-detail-stats">
+            <div>
+              <small>EXPERIENCE</small>
+              <strong>{selectedCandidate.experience}</strong>
+            </div>
+            <div>
+              <small>AVAILABILITY</small>
+              <strong>{selectedCandidate.availability}</strong>
+            </div>
+            <div>
+              <small>DESIRED PAY</small>
+              <strong>{selectedCandidate.desiredPay}</strong>
+            </div>
+            <div>
+              <small>APPLICATION STAGE</small>
+              <strong>{selectedApplication.stage}</strong>
+            </div>
+          </div>
+        </div>
+        <h3>Selected work</h3>
+        <PortfolioTiles items={selectedCandidate.portfolio ?? []} />
+        <div className="form-actions">
+          <Badge tone={selectedCandidate.verified ? "green" : "neutral"}>
+            {selectedCandidate.verified
+              ? "Identity verified"
+              : "Email confirmed"}
+          </Badge>
+          <Link className="button" href={ROUTES.employerMessages}>
+            Open conversations <ArrowRight size={15} />
+          </Link>
+        </div>
+      </section>
     </AppLayout>
   );
 }

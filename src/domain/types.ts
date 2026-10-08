@@ -47,12 +47,36 @@ export interface Application {
   candidateId: string;
   jobTitle: string;
   stage: PipelineStage;
+  applyPoints: number;
+  jobId?: string;
+}
+export interface ApplyPointsTransaction {
+  id: string;
+  kind: "daily" | "application";
+  amount: number;
+  date: string;
+  description: string;
+  jobId?: string;
+}
+export interface ApplyPointsWallet {
+  balance: number;
+  lastEarnedDate: string | null;
+  history: ApplyPointsTransaction[];
+}
+export interface JobApplication {
+  jobId: string;
+  pointsUsed: number;
+  submittedAt: string;
+  subject: string;
+  message: string;
 }
 export interface MarketplaceState {
   savedJobIds: string[];
   appliedJobIds: string[];
   shortlistedCandidateIds: string[];
   applications: Application[];
+  applyPoints: ApplyPointsWallet;
+  jobApplications: JobApplication[];
   profile: {
     headline: string;
     bio: string;

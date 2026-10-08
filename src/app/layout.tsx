@@ -3,6 +3,7 @@ import "./globals.css";
 import "./spacecrew.css";
 import "./spacecrew-app.css";
 import "./spacecrew-landing.css";
+import "./apply-points.css";
 
 export const metadata: Metadata = {
   title: {
