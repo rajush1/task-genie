@@ -1,0 +1,632 @@
+/* Extend the supplied SpaceCrew skin from the home screen to every route. */
+:root {
+  --accent-btn: #7e22ce;
+  --accent-soft: #faf5ff;
+  --accent-line: #e9d5ff;
+  --surface-soft: #f9fafb;
+}
+
+body,
+.app {
+  background: var(--canvas);
+}
+
+.site-header:not(.home-header) {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header.home-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.site-header:not(.home-header) .public-nav a,
+.site-header:not(.home-header) .header-actions .text-button,
+.site-header:not(.home-header) .profile-button,
+.site-header:not(.home-header) .icon-button {
+  color: var(--ink);
+}
+
+.site-header:not(.home-header) .public-nav a.active,
+.site-header:not(.home-header) .public-nav a:hover,
+.site-header:not(.home-header) .header-actions .text-button:hover {
+  color: var(--purple);
+}
+
+.site-header:not(.home-header) .button {
+  background: var(--purple);
+  color: #fff;
+  border: 1px solid var(--purple);
+}
+
+.site-header:not(.home-header) .button:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+}
+
+.site-header:not(.home-header) .theme-toggle {
+  border-color: var(--accent-line);
+  color: var(--purple);
+}
+
+.site-header:not(.home-header) .theme-toggle:hover {
+  background: var(--accent-soft);
+}
+
+.site-header .logo img.tg-logo,
+.site-footer .logo img.tg-logo {
+  display: none;
+  width: auto;
+  height: 40px;
+  object-fit: contain;
+}
+
+.site-header .logo img.tg-logo-dark,
+.site-footer .logo img.tg-logo-dark {
+  display: block;
+}
+
+.site-header:not(.home-header) .logo img.tg-logo-dark {
+  display: none;
+}
+
+.site-header:not(.home-header) .logo img.tg-logo-light {
+  display: block;
+}
+
+.site-header:not(.home-header) .logo img.tg-logo {
+  transform: translateY(-26%);
+}
+
+.site-header .mobile-navigation {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.site-header .mobile-navigation a:hover {
+  color: var(--purple);
+}
+
+.home-page .hero {
+  isolation: isolate;
+}
+
+.home-page .hero::before {
+  z-index: -1;
+  top: -80px;
+  bottom: 0;
+}
+
+.button {
+  background: var(--purple);
+  color: #fff;
+  border: 1px solid var(--purple);
+}
+
+.button:hover {
+  background: var(--teal-dark);
+  border-color: var(--teal-dark);
+  color: #fff;
+}
+
+.button.secondary {
+  background: var(--white);
+  color: var(--purple);
+  border: 1px solid var(--accent-line);
+}
+
+.button.secondary:hover {
+  background: var(--accent-soft);
+  border-color: var(--purple);
+}
+
+.button.ghost-light,
+.button.white {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.home-header .button {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.home-page .hero-search .button,
+.home-page .hero-candidate .button {
+  background: var(--purple);
+  color: #fff;
+  border-color: var(--purple);
+}
+
+.cta-banner .button.secondary {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #c084fc;
+  box-shadow: 0 0 0 3px #9333ea1c;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--purple);
+}
+
+.page-heading h1,
+.section-heading h2,
+.form-section-heading h2,
+.marketing-hero h1,
+.detail-card h1,
+.auth-page h1,
+.workspace-content h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.page-heading h1 {
+  font-size: clamp(29px, 3vw, 40px);
+}
+
+.eyebrow,
+.verified,
+.text-link,
+.link-button,
+.back-link:hover {
+  color: var(--purple);
+}
+
+.badge-green,
+.badge-blue,
+.badge-amber,
+.notice,
+.feature-icon {
+  color: var(--purple);
+  background: var(--accent-soft);
+}
+
+.badge-neutral,
+.tags span,
+.tags button {
+  color: var(--muted);
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+.tags button:hover,
+.icon-button:hover,
+.workspace-sidebar nav a:hover {
+  background: var(--accent-soft);
+  color: var(--purple);
+}
+
+.company-mark,
+.timeline-icon,
+.avatar {
+  background: #f3e8ff;
+  color: #7e22ce;
+}
+
+.metric-card,
+.card,
+.form-card,
+.table-card,
+.filter-panel,
+.search-bar,
+.input-wrap,
+.candidate-row,
+.job-card,
+.candidate-card,
+.detail-card,
+.how-card,
+.price-card,
+.auth-form,
+.workspace-sidebar {
+  background: var(--white);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+
+.candidate-row:hover,
+.candidate-row.selected {
+  border-color: #d8b4fe;
+}
+
+.candidate-row.selected {
+  background: var(--accent-soft);
+  box-shadow: 0 0 0 1px var(--accent-line);
+}
+
+.workspace-app,
+.workspace {
+  background: var(--surface-soft);
+}
+
+.workspace-sidebar {
+  box-shadow: none;
+}
+
+.workspace-switch {
+  background: var(--surface-soft);
+  border-color: var(--line);
+}
+
+.workspace-switch a.active,
+.workspace-sidebar nav a.active {
+  background: var(--accent-soft);
+  color: var(--purple);
+  box-shadow: none;
+}
+
+.workspace-sidebar nav a,
+.sidebar-bottom a {
+  color: var(--muted);
+}
+
+.sidebar-tip,
+.next-step-card,
+.filter-help {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--purple);
+}
+
+.sidebar-tip b,
+.completion-line > span,
+.job-salary,
+.profile-checklist svg {
+  color: var(--purple);
+}
+
+.profile-cover,
+.profile-banner,
+.auth-story {
+  background: var(--grad);
+  color: #fff;
+}
+
+.profile-cover h2,
+.profile-banner h2,
+.auth-story h1,
+.auth-story p,
+.auth-story .eyebrow {
+  color: #fff;
+}
+
+.auth-story h1 em {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: #fff;
+  text-underline-offset: 7px;
+}
+
+.auth-benefits > span,
+.auth-benefits svg {
+  color: #fff;
+}
+
+.auth-story-card {
+  background: #ffffff20;
+  border-color: #ffffff55;
+  color: #fff;
+}
+
+.auth-story-card > svg,
+.auth-story-card p {
+  color: #fff;
+}
+
+.auth-form > .back-link {
+  display: flex;
+  width: max-content;
+  margin-bottom: 24px;
+}
+
+.auth-form > .eyebrow {
+  display: block;
+}
+
+.role-choice button.active {
+  background: var(--accent-soft);
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.wizard-guidance strong {
+  color: var(--purple);
+}
+
+.guidance-footnote {
+  border-top-color: var(--accent-line);
+}
+
+.browse-page .search-bar,
+.filter-panel,
+.detail-card,
+.form-card,
+.marketing-page .how-card,
+.price-card {
+  border-radius: 12px;
+}
+
+.marketing-hero h1 em {
+  color: var(--purple);
+}
+
+.billing-toggle,
+.role-choice button,
+.conversation-item,
+.settings-form,
+.resume-preview {
+  border-color: var(--line);
+}
+
+.stepper,
+.billing-toggle,
+.password-input,
+.filter-drawer,
+.conversation-panel,
+.conversation-list {
+  background: var(--white);
+  border-color: var(--line);
+}
+
+.stepper .active button,
+.stepper .active button > span {
+  color: var(--purple);
+}
+
+.stepper .active button > span,
+.stepper .current,
+.wizard-guidance {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+.stepper .current button > span {
+  background: var(--purple);
+  color: #fff;
+}
+
+/* The supplied dark palette is extended to all public and workspace screens. */
+:root[data-theme="dark"] {
+  --accent-soft: #1e1b35;
+  --accent-line: #39315e;
+  --surface-soft: #101018;
+}
+
+:root[data-theme="dark"] .app,
+:root[data-theme="dark"] .workspace-app,
+:root[data-theme="dark"] .workspace {
+  background: var(--canvas);
+}
+
+:root[data-theme="dark"] .site-header:not(.home-header) {
+  background: #08090a;
+  border-bottom-color: var(--line);
+}
+
+:root[data-theme="dark"] .site-header .logo img.tg-logo-light {
+  display: none;
+}
+
+:root[data-theme="dark"] .site-header .logo img.tg-logo-dark {
+  display: block;
+}
+
+:root[data-theme="dark"] .site-header:not(.home-header) .public-nav a,
+:root[data-theme="dark"] .site-header:not(.home-header) .header-actions .text-button,
+:root[data-theme="dark"] .site-header:not(.home-header) .profile-button,
+:root[data-theme="dark"] .site-header:not(.home-header) .icon-button {
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .site-header:not(.home-header) .public-nav a.active,
+:root[data-theme="dark"] .site-header:not(.home-header) .public-nav a:hover {
+  color: var(--accent);
+}
+
+:root[data-theme="dark"] .site-header:not(.home-header) .theme-toggle {
+  border-color: var(--accent-line);
+  color: var(--accent);
+}
+
+:root[data-theme="dark"] .site-header .mobile-navigation {
+  background: #13131a;
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .metric-card,
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .form-card,
+:root[data-theme="dark"] .table-card,
+:root[data-theme="dark"] .filter-panel,
+:root[data-theme="dark"] .search-bar,
+:root[data-theme="dark"] .input-wrap,
+:root[data-theme="dark"] .candidate-row,
+:root[data-theme="dark"] .candidate-card,
+:root[data-theme="dark"] .detail-card,
+:root[data-theme="dark"] .how-card,
+:root[data-theme="dark"] .price-card,
+:root[data-theme="dark"] .auth-form,
+:root[data-theme="dark"] .workspace-sidebar,
+:root[data-theme="dark"] .conversation-list,
+:root[data-theme="dark"] .messages-layout,
+:root[data-theme="dark"] .resume-preview,
+:root[data-theme="dark"] .application-row,
+:root[data-theme="dark"] .pipeline-card,
+:root[data-theme="dark"] .profile-sidebar,
+:root[data-theme="dark"] .verification-card,
+:root[data-theme="dark"] .experience-card {
+  background: var(--white);
+  border-color: var(--line);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+:root[data-theme="dark"] .candidate-row.selected {
+  background: #1e1b35;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent-line);
+}
+
+:root[data-theme="dark"] .candidate-row:hover {
+  border-color: var(--accent);
+}
+
+:root[data-theme="dark"] .stepper,
+:root[data-theme="dark"] .password-input,
+:root[data-theme="dark"] .filter-drawer,
+:root[data-theme="dark"] .conversation-panel,
+:root[data-theme="dark"] .wizard-guidance,
+:root[data-theme="dark"] .job-draft-preview,
+:root[data-theme="dark"] .role-choice button,
+:root[data-theme="dark"] .message-compose,
+:root[data-theme="dark"] .message-scroll,
+:root[data-theme="dark"] .conversation-header,
+:root[data-theme="dark"] .conversation-search {
+  background: var(--white);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] .stepper .current,
+:root[data-theme="dark"] .stepper .active button > span {
+  background: #282247;
+}
+
+:root[data-theme="dark"] .stepper button > span {
+  background: #282247;
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .wizard-guidance strong,
+:root[data-theme="dark"] .auth-form .role-choice button.active,
+:root[data-theme="dark"] .auth-form .role-choice button.active strong {
+  color: #c9c5ff;
+}
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] .billing-toggle,
+:root[data-theme="dark"] .search-bar input,
+:root[data-theme="dark"] .conversation-search input {
+  background: #1a1a25;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+:root[data-theme="dark"] input::placeholder,
+:root[data-theme="dark"] textarea::placeholder {
+  color: #aaa7c4;
+}
+
+:root[data-theme="dark"] .field-label,
+:root[data-theme="dark"] .check-row,
+:root[data-theme="dark"] .inline-meta,
+:root[data-theme="dark"] .job-meta,
+:root[data-theme="dark"] .company-name,
+:root[data-theme="dark"] .metric-label,
+:root[data-theme="dark"] .sidebar-label,
+:root[data-theme="dark"] .workspace-sidebar nav a,
+:root[data-theme="dark"] .sidebar-bottom a,
+:root[data-theme="dark"] .page-heading p,
+:root[data-theme="dark"] .section-heading p,
+:root[data-theme="dark"] .form-section-heading p {
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .workspace-switch,
+:root[data-theme="dark"] .sidebar-tip,
+:root[data-theme="dark"] .next-step-card,
+:root[data-theme="dark"] .filter-help,
+:root[data-theme="dark"] .notice,
+:root[data-theme="dark"] .badge-neutral,
+:root[data-theme="dark"] .tags span,
+:root[data-theme="dark"] .tags button,
+:root[data-theme="dark"] .feature-icon {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] .workspace-switch a.active,
+:root[data-theme="dark"] .workspace-sidebar nav a.active,
+:root[data-theme="dark"] .workspace-sidebar nav a:hover,
+:root[data-theme="dark"] .role-choice button.active,
+:root[data-theme="dark"] .conversation-item.active {
+  background: #282247;
+  color: #c9c5ff;
+}
+
+:root[data-theme="dark"] .button.secondary {
+  background: transparent;
+  color: #b4afff;
+  border: 1px solid var(--accent);
+}
+
+:root[data-theme="dark"] .workspace-sidebar,
+:root[data-theme="dark"] .filter-drawer,
+:root[data-theme="dark"] .message-scroll {
+  scrollbar-color: #39315e #13131a;
+  scrollbar-width: thin;
+}
+
+:root[data-theme="dark"] .auth-story h1,
+:root[data-theme="dark"] .auth-story p,
+:root[data-theme="dark"] .auth-story .eyebrow,
+:root[data-theme="dark"] .profile-cover h2,
+:root[data-theme="dark"] .profile-banner h2 {
+  color: #fff;
+}
+
+:root[data-theme="dark"] table th {
+  background: #1a1a25;
+  color: var(--muted);
+}
+
+:root[data-theme="dark"] table td,
+:root[data-theme="dark"] .application-row,
+:root[data-theme="dark"] .conversation-item,
+:root[data-theme="dark"] .toggle-row {
+  border-color: var(--line);
+}
+
+@media (max-width: 760px) {
+  .site-header .workspace-switch {
+    display: none;
+  }
+
+  .home-page .hero-copy h1 {
+    font-size: clamp(38px, 10vw, 52px);
+  }
+
+  .home-header .header-actions .text-button {
+    display: none;
+  }
+
+  .site-header .logo img.tg-logo {
+    height: 33px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}

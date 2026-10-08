@@ -28,6 +28,10 @@ Open [http://localhost:3000](http://localhost:3000). This is a static, populated
 
 The prototype uses a typed, in-memory preview store. Every screen includes complete professional content and representative records. Job responsibilities, compensation, schedules, skills, and direct-hiring flows take their content structure from [OnlineJobs.ph](https://www.onlinejobs.ph/), without copying real people's profiles or implying live job availability. Search falls back to relevant recommendations instead of an empty screen. In production, replace fixtures with authenticated repositories while retaining the domain contracts.
 
+## Visual skin
+
+Every route uses the supplied SpaceCrew-inspired Task Genie skin. Its extracted light/dark theme is in `src/app/spacecrew.css`, with cross-route adaptations in `src/app/spacecrew-app.css`. The supplied logo variants live in `public/brand`. The theme toggle saves the visitor's preference locally; it does not affect account data.
+
 ## PayPal sandbox boundary
 
 The UI uses preview-only billing and does not call a payment endpoint. The reserved server adapter is not deployed on GitHub Pages; it never creates or captures a live payment. Before production, implement server-side OAuth exchange, idempotent create/capture endpoints, webhook verification, subscription reconciliation, and audited entitlement updates. Do not add real credentials to the prototype.

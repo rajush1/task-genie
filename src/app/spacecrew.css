@@ -1,0 +1,158 @@
+/* ===== Task Genie — SpaceCrew-aligned skin (Tailwind purple/pink/blue/black) ===== */
+:root{
+  --font-body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Inter,Roboto,sans-serif;
+  --font-display:"Poppins","Open Sans",ui-sans-serif,system-ui,sans-serif;
+  --purple:#9333ea; --purple-500:#a855f7; --pink:#ec4899; --blue:#2563eb; --black:#000; --gray-950:#030712;
+  --grad:linear-gradient(to bottom right,#9333ea 0%,#a855f7 50%,#ec4899 100%);
+  --grad-dark:linear-gradient(to bottom right,#030712 0%,#000 100%);
+  --teal:var(--purple); --teal-dark:#7e22ce; --magenta:var(--purple);
+  --mint:#f3f4f6; --canvas:#fff; --line:#e5e7eb; --muted:#4b5563; --ink:#111827;
+  --shadow:0 10px 30px #1118270f; --radius:12px;
+}
+html,body{overflow-x:hidden}
+body{font-family:var(--font-body);background:#fff}
+h1,h2,h3,.section-heading h2,.hero-copy h1,.cta-banner h2,.home-steps h3,.job-card h3,.category-card h3{font-family:var(--font-display);font-weight:800;letter-spacing:-.01em}
+.home-steps h3,.job-card h3,.category-card h3,.value-strip strong{font-weight:700}
+.hero-copy h1{font-size:64px;line-height:1.06}
+.eyebrow,.hero-kicker{letter-spacing:.12em;font-weight:600}
+
+/* header: sits on the gradient like SpaceCrew's */
+.site-header{background:transparent;border-bottom:0;position:absolute;width:100%}
+.logo{gap:0}.logo-mark,.logo-accent{display:none}
+.logo img.tg-logo{height:40px;width:auto;display:block}
+.site-header .tg-logo-light{display:none}.site-header .tg-logo-dark{display:block}
+.public-nav a{color:#fff;font-weight:500}.public-nav a:hover{color:#fce7f3}
+.header-actions .text-button{color:#fff}
+.button{background:#fff;color:var(--purple);border:0;border-radius:6px;font-weight:600;box-shadow:none;min-height:40px;padding:9px 18px}
+.button:hover{background:#faf5ff}
+.site-header .button{background:transparent;color:#fff;border:1px solid #fff}
+.site-header .button:hover{background:#ffffff1a}
+.theme-toggle{border-color:#ffffff80;color:#fff}
+
+/* hero */
+.home-page .hero{padding-top:140px}
+.home-page .hero::before{content:"";position:absolute;top:-80px;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:var(--grad);z-index:-1}
+.hero-copy,.hero-copy h1,.hero-copy p{color:#fff}
+.hero-copy h1 span,.hero-copy h1 em{color:#fff;text-decoration:underline;text-decoration-color:#fff;text-underline-offset:10px;text-decoration-thickness:3px}
+.hero-kicker,.hero-trust,.visual-caption,.visual-bottom{color:#fff}
+.pulse-dot{background:#fff}.hero-trust svg{color:#fff}
+.hero-search{border:0;border-radius:12px;box-shadow:0 24px 60px #3b076440}
+.hero-search .button{background:var(--purple);color:#fff}
+.search-tabs .active{color:var(--purple)}
+.hero-candidate{border-color:#f3e8ff}
+.hero-candidate-cover{background:linear-gradient(135deg,#f3e8ff,#fce7f3);color:#7e22ce}
+.visual-orbit{background:#ffffff14;border-color:#ffffff40}
+.visual-orbit.orbit-two{background:#ffffff1f;border-color:#ffffff59}
+.cover-pattern{border-color:#e9d5ff80;box-shadow:0 0 0 16px #e9d5ff44}
+.badge-green{background:#f3e8ff;color:#6b21a8}.verified{color:var(--purple)}
+.text-button,.text-link{color:var(--purple);font-weight:600}
+
+/* white sections */
+.value-strip{border-color:var(--line);box-shadow:var(--shadow)}
+.value-strip svg{color:var(--purple)}
+.section-heading h2{font-size:36px}
+.category-card{border-color:var(--line);border-radius:12px}
+.category-card:hover{border-color:#d8b4fe;box-shadow:var(--shadow)}
+.category-icon{background:var(--purple)!important;color:#fff!important;border-radius:10px}
+.category-icon svg{color:#fff}
+.category-card .lucide-arrow-right{color:var(--purple)}
+
+/* jobs showcase: solid blue band like SpaceCrew's second section */
+.jobs-showcase{background:var(--blue);position:relative}
+.jobs-showcase .section-heading h2,.jobs-showcase .section-heading p{color:#fff}
+.jobs-showcase .text-link{color:#fff}
+.job-card{border:0;border-radius:12px}
+.job-salary{color:var(--purple);font-weight:700}
+.company-mark{background:var(--purple);color:#fff;border-radius:8px}
+.badge-neutral,.tags span,.tag{background:#f3f4f6;color:#374151}
+
+/* how it works */
+.home-steps>div>span{color:var(--purple);border-bottom-color:#e9d5ff;font-weight:700}
+
+/* CTA: black band + purple button, like SpaceCrew's pre-footer */
+.cta-banner{background:var(--grad-dark);border-radius:16px}
+.cta-banner .eyebrow,.cta-banner p{color:#d1d5db}
+.cta-banner .button{background:var(--purple);color:#fff}
+.cta-banner .button.secondary{background:transparent;color:#fff;border:1px solid #fff}
+
+/* footer: black */
+.site-footer{background:#000;border-top:0;color:#fff;padding-top:48px}
+.site-footer .tg-logo-light{display:none}.site-footer .tg-logo-dark{display:block;height:36px}
+.footer-grid h4,.footer-grid strong{color:#fff;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.footer-grid a,.footer-brand p,.footer-brand span{color:#d1d5db}
+.footer-grid a:hover{color:#fff}
+.footer-bottom{border-top-color:#1f2937;color:#9ca3af}
+.footer-brand svg{color:#d1d5db}
+.company-name{color:#4b5563}
+.home-page .hero{position:relative}
+.site-header .logo img.tg-logo-light,.site-footer .logo img.tg-logo-light{display:none}
+.site-header .logo img.tg-logo-dark,.site-footer .logo img.tg-logo-dark{display:block}
+
+/* optical alignment: the wordmark sits in the lower ~40% of the logo image, so shift it up until the wordmark centers on the nav text */
+.site-header .logo img.tg-logo{transform:translateY(-26%)}
+
+
+/* ===== Dark mode (SpaceCrew skin): near-black + indigo/periwinkle ===== */
+.theme-toggle{border:1px solid #ffffff80;background:transparent;color:#fff;border-radius:999px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;line-height:1}
+:root[data-theme="dark"]{
+  --accent:#8b85f5;        /* text, links, icons on dark — 6.2:1 */
+  --accent-btn:#5f55dd;    /* button fill with white text — 5.5:1 */
+  --accent-deep:#4f46e5;
+  --grad:linear-gradient(170deg,#0e0b1d 0%,#131026 45%,#17142d 100%);
+  --grad-dark:linear-gradient(to bottom right,#17142d 0%,#0b0a14 100%);
+  --teal:var(--accent); --teal-dark:var(--accent-deep); --magenta:var(--accent); --purple:var(--accent);
+  --canvas:#0b0b10; --mint:#101018; --line:#26263a; --muted:#b9b6d6; --ink:#f4f3fb; --white:#13131a;
+  --shadow:0 14px 36px #00000080;
+}
+:root[data-theme="dark"] body{background:var(--canvas);color:var(--ink)}
+:root[data-theme="dark"] .site-header{position:sticky;top:0;background:#08090a;border-bottom:1px solid #1a1a24}
+:root[data-theme="dark"] .home-page .hero{padding-top:78px}
+:root[data-theme="dark"] .home-page .hero::before{top:0;background:var(--grad)}
+:root[data-theme="dark"] .public-nav a{color:#fff}
+:root[data-theme="dark"] .public-nav a:hover{color:var(--accent)}
+:root[data-theme="dark"] .header-actions .text-button{color:var(--accent)}
+:root[data-theme="dark"] .button{background:var(--accent-btn);color:#fff;border:0;border-radius:6px}
+:root[data-theme="dark"] .button:hover{background:var(--accent-deep)}
+:root[data-theme="dark"] .site-header .button{background:var(--accent-btn);color:#fff;border:0}
+:root[data-theme="dark"] .button.secondary,:root[data-theme="dark"] .button.ghost-light,:root[data-theme="dark"] .button.white{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+:root[data-theme="dark"] .theme-toggle{border-color:#3a3a4e;color:#fff}
+
+/* hero */
+:root[data-theme="dark"] .hero-copy,:root[data-theme="dark"] .hero-copy h1,:root[data-theme="dark"] .hero-copy p{color:#fff}
+:root[data-theme="dark"] .hero-copy h1 span,:root[data-theme="dark"] .hero-copy h1 em{color:var(--accent);text-decoration-color:#fff}
+:root[data-theme="dark"] .hero-kicker,:root[data-theme="dark"] .hero-trust,:root[data-theme="dark"] .visual-caption,:root[data-theme="dark"] .visual-bottom{color:var(--muted)}
+:root[data-theme="dark"] .pulse-dot{background:var(--accent)}
+:root[data-theme="dark"] .hero-trust svg{color:var(--accent)}
+:root[data-theme="dark"] .hero-search,:root[data-theme="dark"] .hero-candidate,:root[data-theme="dark"] .floating-candidate,:root[data-theme="dark"] .floating-match,:root[data-theme="dark"] .value-strip,:root[data-theme="dark"] .category-card,:root[data-theme="dark"] .job-card{background:#13131a;border:1px solid var(--line);color:var(--ink);box-shadow:0 20px 50px #00000080}
+:root[data-theme="dark"] .hero-search input,:root[data-theme="dark"] .hero-search button{background:transparent;color:var(--ink)}
+:root[data-theme="dark"] .hero-search input::placeholder{color:var(--muted)}
+:root[data-theme="dark"] .hero-search .button{background:var(--accent-btn);color:#fff}
+:root[data-theme="dark"] .search-tabs .active{color:var(--accent)}
+:root[data-theme="dark"] .hero-candidate-cover{background:linear-gradient(135deg,#1a182d,#242339);color:#b9b6d6}
+:root[data-theme="dark"] .visual-orbit{background:#8b85f50d;border-color:#8b85f533}
+:root[data-theme="dark"] .visual-orbit.orbit-two{background:#8b85f514;border-color:#8b85f54d}
+:root[data-theme="dark"] .cover-pattern{border-color:#8b85f533;box-shadow:0 0 0 16px #8b85f51a}
+:root[data-theme="dark"] .avatar,:root[data-theme="dark"] .match-icon{background:#1a182d;color:var(--accent);border:2px solid #fff}
+:root[data-theme="dark"] .match-icon{border:0}
+:root[data-theme="dark"] .badge-green{background:#1e1b3a;color:#b4afff}
+:root[data-theme="dark"] .verified,:root[data-theme="dark"] .text-button,:root[data-theme="dark"] .text-link,:root[data-theme="dark"] .eyebrow,:root[data-theme="dark"] .job-salary,:root[data-theme="dark"] .home-steps>div>span,:root[data-theme="dark"] .value-strip svg,:root[data-theme="dark"] .category-card .lucide-arrow-right{color:var(--accent)}
+:root[data-theme="dark"] h1,:root[data-theme="dark"] h2,:root[data-theme="dark"] h3,:root[data-theme="dark"] .value-strip strong,:root[data-theme="dark"] .hero-candidate strong{color:var(--ink)}
+:root[data-theme="dark"] p,:root[data-theme="dark"] .company-name,:root[data-theme="dark"] .job-summary,:root[data-theme="dark"] .job-meta,:root[data-theme="dark"] .hero-talent-facts,:root[data-theme="dark"] .hero-candidate small,:root[data-theme="dark"] .floating-match p,:root[data-theme="dark"] .floating-candidate small{color:var(--muted)}
+:root[data-theme="dark"] .category-icon,:root[data-theme="dark"] .company-mark{background:var(--accent-btn)!important;color:#fff!important}
+:root[data-theme="dark"] .category-icon svg{color:#fff}
+:root[data-theme="dark"] .badge-neutral,:root[data-theme="dark"] .tags span,:root[data-theme="dark"] .tag{background:#1e1e2c;color:#d6d4ea}
+
+/* blue band → deep indigo band */
+:root[data-theme="dark"] .jobs-showcase{background:#15133a}
+:root[data-theme="dark"] .jobs-showcase .section-heading h2,:root[data-theme="dark"] .jobs-showcase .section-heading p,:root[data-theme="dark"] .jobs-showcase .text-link{color:#fff}
+:root[data-theme="dark"] .home-steps>div>span{border-bottom-color:#2d2a52}
+
+/* CTA + footer */
+:root[data-theme="dark"] .cta-banner{background:var(--grad-dark);border:1px solid #26263a}
+:root[data-theme="dark"] .cta-banner .eyebrow,:root[data-theme="dark"] .cta-banner p{color:var(--muted)}
+:root[data-theme="dark"] .cta-banner .button{background:var(--accent-btn);color:#fff}
+:root[data-theme="dark"] .cta-banner .button.secondary{background:transparent;color:#fff;border:1px solid #fff}
+:root[data-theme="dark"] .site-footer{background:#000;border-top:1px solid #1a1a24}
+:root[data-theme="dark"] .footer-grid a,:root[data-theme="dark"] .footer-brand p{color:#b9b6d6}
+:root[data-theme="dark"] .footer-grid a:hover{color:#fff}
+:root[data-theme="dark"] .footer-bottom{border-top-color:#1f1f2e;color:#9e9bb8}

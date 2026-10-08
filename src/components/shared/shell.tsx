@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useSyncExternalStore } from "react";
 import {
   ArrowRight,
   Bell,
@@ -15,27 +17,84 @@ import {
   LogOut,
   Menu,
   MessageSquare,
+  Moon,
   Search,
   Settings,
   ShieldCheck,
   Sparkles,
+  Sun,
   UserRound,
   X,
 } from "lucide-react";
 import { PRODUCT, ROUTES } from "@/config/product";
 import { Avatar, cx } from "./ui";
 
+const pagesBasePath = process.env.NEXT_PUBLIC_PAGES_BASE_PATH || "";
+
+function subscribeToTheme(onChange: () => void) {
+  window.addEventListener("tg-theme-change", onChange);
+  window.addEventListener("storage", onChange);
+  return () => {
+    window.removeEventListener("tg-theme-change", onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function currentTheme(): "light" | "dark" {
+  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+}
+
 export function Logo() {
   return (
-    <Link className="logo" href="/">
-      <span className="logo-mark">
-        <Sparkles size={21} />
-      </span>
-      <span>
-        task<span className="logo-accent">genie</span>
-        <i />
-      </span>
+    <Link className="logo" href="/" aria-label="Task Genie home">
+      <Image
+        className="tg-logo tg-logo-light"
+        src={`${pagesBasePath}/brand/task-genie-light.png`}
+        alt="Task Genie"
+        width={240}
+        height={95}
+        loading="eager"
+        unoptimized
+      />
+      <Image
+        className="tg-logo tg-logo-dark"
+        src={`${pagesBasePath}/brand/task-genie-dark.png`}
+        alt=""
+        aria-hidden="true"
+        width={240}
+        height={95}
+        loading="eager"
+        unoptimized
+      />
     </Link>
+  );
+}
+
+function ThemeToggle() {
+  const theme = useSyncExternalStore(subscribeToTheme, currentTheme, () => "light");
+
+  function toggleTheme() {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = nextTheme;
+    window.dispatchEvent(new Event("tg-theme-change"));
+    try {
+      localStorage.setItem("tg-theme", nextTheme);
+    } catch {
+      // The preview remains usable when browser storage is unavailable.
+    }
+  }
+
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      onClick={toggleTheme}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+      aria-pressed={theme === "dark"}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+    >
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
   );
 }
 
@@ -58,7 +117,7 @@ export function Header({
     ["Pricing", ROUTES.pricing],
   ];
   return (
-    <header className="site-header">
+    <header className={cx("site-header", path === "/" && "home-header")}>
       <div className="header-inner">
         <Logo />
         <nav className="public-nav" aria-label="Main navigation">
@@ -74,6 +133,7 @@ export function Header({
             ))}
         </nav>
         <div className="header-actions">
+          <ThemeToggle />
           {appMode ? (
             <>
               <div className="workspace-switch">
