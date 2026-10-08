@@ -41,15 +41,23 @@ describe("populated product preview", () => {
       ),
     ).toBe(true);
   });
-  it("starts with complete records in saved, applied, shortlisted, and hiring views", () => {
+  it("starts with complete records in saved, applied, favorites, and hiring views", () => {
     expect(
       defaultState.savedJobIds.every((id) => jobs.some((job) => job.id === id)),
     ).toBe(true);
     expect(defaultState.savedJobIds.length).toBeGreaterThan(0);
     expect(defaultState.appliedJobIds.length).toBeGreaterThan(0);
     expect(
-      defaultState.shortlistedCandidateIds.every((id) =>
+      defaultState.favoritedCandidateIds.every((id) =>
         candidates.some((candidate) => candidate.id === id),
+      ),
+    ).toBe(true);
+    expect(
+      initialApplications.every((application) =>
+        jobs.some(
+          (job) =>
+            job.id === application.jobId && job.title === application.jobTitle,
+        ),
       ),
     ).toBe(true);
     for (const stage of ["New", "Shortlisted", "Interview", "Offer"]) {

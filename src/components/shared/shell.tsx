@@ -23,6 +23,7 @@ import {
   Settings,
   ShieldCheck,
   Sparkles,
+  Star,
   Sun,
   UserRound,
   X,
@@ -216,7 +217,8 @@ export function Header({
             ...(appMode
               ? employer
                 ? [
-                    ["Shortlist", ROUTES.shortlist],
+                    ["Favorites", ROUTES.favorites],
+                    ["Job shortlists", ROUTES.shortlist],
                     ["Hiring pipeline", ROUTES.pipeline],
                     ["Job posts", ROUTES.employerJobs],
                     ["Post a job", ROUTES.postJob],
@@ -254,20 +256,30 @@ export function WorkspaceSidebar({
   employer,
   applyPoints,
   applicationCount,
+  favoriteCount,
+  shortlistCount,
 }: {
   path: string;
   employer: boolean;
   applyPoints: number;
   applicationCount: number;
+  favoriteCount: number;
+  shortlistCount: number;
 }) {
   const links = employer
     ? [
         { label: "Talent search", href: ROUTES.talent, icon: Search },
         {
-          label: "Shortlist",
+          label: "Favorites",
+          href: ROUTES.favorites,
+          icon: Star,
+          count: String(favoriteCount),
+        },
+        {
+          label: "Job shortlists",
           href: ROUTES.shortlist,
           icon: Bookmark,
-          count: "3",
+          count: String(shortlistCount),
         },
         {
           label: "Hiring pipeline",

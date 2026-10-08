@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import type { ReactNode } from "react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -89,10 +90,14 @@ export function CandidateRow({
   candidate,
   selected,
   onClick,
+  employerTags = [],
+  favorite = false,
 }: {
   candidate: Candidate;
   selected: boolean;
   onClick: () => void;
+  employerTags?: string[];
+  favorite?: boolean;
 }) {
   return (
     <button
@@ -105,6 +110,9 @@ export function CandidateRow({
         <span className="candidate-name">
           {candidate.name}
           {candidate.verified && <BadgeCheck size={15} />}
+          {favorite && (
+            <span className="candidate-favorite-label">Favorite</span>
+          )}
         </span>
         <span className="candidate-role">{candidate.role}</span>
         <span className="candidate-inline">
@@ -112,6 +120,11 @@ export function CandidateRow({
           <span>{candidate.lastActive}</span>
         </span>
         <SkillTags skills={candidate.skills.slice(0, 3)} />
+        {employerTags.length > 0 && (
+          <span className="candidate-row-employer-tags">
+            Your tags: {employerTags.join(" · ")}
+          </span>
+        )}
       </span>
       <span className="candidate-rate">
         <strong>{candidate.desiredPay}</strong>
@@ -127,12 +140,12 @@ export function CandidateRow({
 
 export function CandidateDetail({
   candidate,
-  shortlisted,
-  toggle,
+  organization,
+  applicationActions,
 }: {
   candidate: Candidate;
-  shortlisted: boolean;
-  toggle: () => void;
+  organization?: ReactNode;
+  applicationActions?: ReactNode;
 }) {
   return (
     <aside className="candidate-detail card">
@@ -183,11 +196,9 @@ export function CandidateDetail({
           <MessageSquare size={16} />
           Message
         </Link>
-        <button className="button secondary" onClick={toggle}>
-          <Bookmark size={16} fill={shortlisted ? "currentColor" : "none"} />
-          {shortlisted ? "Shortlisted" : "Shortlist"}
-        </button>
       </div>
+      {organization}
+      {applicationActions}
       <p className="privacy-note">
         <ShieldCheck size={13} />
         Contact details are shared by the candidate.

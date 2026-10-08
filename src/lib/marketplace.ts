@@ -12,7 +12,12 @@ export const defaultState: MarketplaceState = {
     "bookkeeper",
     "social-media-manager",
   ],
-  shortlistedCandidateIds: ["joshua", "maria", "bea"],
+  favoritedCandidateIds: ["joshua", "maria", "bea"],
+  candidateTags: {
+    maria: ["Executive support", "Founder support"],
+    joshua: ["Customer experience", "US hours"],
+    bea: ["Social campaigns"],
+  },
   applications: [],
   applyPoints: {
     balance: 40,

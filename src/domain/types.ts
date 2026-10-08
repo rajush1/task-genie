@@ -73,7 +73,8 @@ export interface JobApplication {
 export interface MarketplaceState {
   savedJobIds: string[];
   appliedJobIds: string[];
-  shortlistedCandidateIds: string[];
+  favoritedCandidateIds: string[];
+  candidateTags: Record<string, string[]>;
   applications: Application[];
   applyPoints: ApplyPointsWallet;
   jobApplications: JobApplication[];

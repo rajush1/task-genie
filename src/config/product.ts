@@ -22,6 +22,7 @@ export const ROUTES = {
   settings: "/settings",
   payments: "/payments",
   talent: "/employer/talent",
+  favorites: "/employer/favorites",
   postJob: "/employer/post-job",
   pipeline: "/employer/pipeline",
   messages: "/messages",

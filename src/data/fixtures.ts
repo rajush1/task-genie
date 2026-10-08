@@ -586,22 +586,27 @@ export const demoJobSeeker: Candidate = {
   portfolio: ["E-commerce operations dashboard", "Customer support playbook"],
 };
 export const initialApplications: Application[] = candidates.map(
-  (candidate, index) => ({
-    id: `app-${index + 1}`,
-    candidateId: candidate.id,
-    applyPoints: [12, 8, 20, 6, 15, 10, 3, 25][index],
-    jobTitle: [
-      "Executive Assistant",
-      "Customer Operations Specialist",
-      "Project Coordinator",
-      "Automation & CRM Assistant",
-      "Social Media Manager",
-      "Shopify Specialist",
-      "QuickBooks Bookkeeper",
-      "WordPress Developer",
-    ][index],
-    stage: (["New", "Shortlisted", "Interview", "Offer"] as const)[index % 4],
-  }),
+  (candidate, index) => {
+    const jobId = [
+      "executive-assistant",
+      "customer-success",
+      "executive-assistant",
+      "automation-crm",
+      "social-media-manager",
+      "shopify-specialist",
+      "bookkeeper",
+      "wordpress-developer",
+    ][index];
+    const job = jobs.find((item) => item.id === jobId)!;
+    return {
+      id: `app-${index + 1}`,
+      candidateId: candidate.id,
+      applyPoints: [12, 8, 20, 6, 15, 10, 3, 25][index],
+      jobId: job.id,
+      jobTitle: job.title,
+      stage: (["New", "Shortlisted", "Interview", "Offer"] as const)[index % 4],
+    };
+  },
 );
 export const jobCategories = [
   {

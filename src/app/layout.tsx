@@ -5,6 +5,7 @@ import "./spacecrew-app.css";
 import "./spacecrew-landing.css";
 import "./apply-points.css";
 import "./freelancer-waitlist.css";
+import "./employer-organization.css";
 
 export const metadata: Metadata = {
   title: {

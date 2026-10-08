@@ -1,0 +1,290 @@
+.talent-view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+.talent-view-tabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--line);
+  padding: 10px 15px;
+  border-radius: 9px;
+  background: var(--white);
+  color: var(--muted);
+  font-size: 12px;
+}
+.talent-view-tabs a.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--purple);
+}
+.talent-view-tabs a span {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: var(--surface-soft);
+}
+.talent-controls {
+  flex-wrap: wrap;
+}
+.talent-controls .input-wrap {
+  min-width: 220px;
+}
+.employer-job-filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  margin-bottom: 20px;
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  border-radius: 12px;
+}
+.employer-job-filter label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.employer-job-filter select {
+  flex: 1;
+  min-width: 200px;
+  max-width: 450px;
+  background: var(--white);
+}
+.employer-job-filter a,
+.candidate-job-application > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--purple);
+  font-size: 11px;
+}
+.candidate-detail .candidate-actions {
+  grid-template-columns: 1fr;
+}
+.candidate-organization {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+  margin-top: 20px;
+  min-width: 0;
+}
+.candidate-organization .favorite-action {
+  width: 100%;
+  font-size: 12px;
+}
+.organization-hint,
+.candidate-tag-form small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 8px 0 14px;
+}
+.candidate-tag-form label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+.candidate-tag-input {
+  display: flex;
+  gap: 7px;
+}
+.candidate-tag-input input {
+  flex: 1;
+  min-width: 0;
+  background: var(--white);
+  font-size: 12px;
+}
+.candidate-tag-input .button {
+  flex-shrink: 0;
+  padding: 9px 12px;
+}
+.employer-tag-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  list-style: none;
+}
+.employer-tag-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  color: var(--purple);
+  border-radius: 6px;
+  padding: 5px 6px 5px 9px;
+  max-width: 100%;
+  font-size: 11px;
+}
+.employer-tag-list li span {
+  overflow-wrap: anywhere;
+}
+.employer-tag-list button {
+  display: inline-flex;
+  padding: 3px;
+  flex-shrink: 0;
+}
+.organization-status {
+  display: block;
+  font-size: 11px;
+  color: var(--purple);
+  margin-top: 8px;
+}
+.candidate-job-applications {
+  border-top: 1px solid var(--line);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+.candidate-job-applications h3 {
+  font-size: 14px;
+  margin: 0;
+}
+.candidate-job-application {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px;
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+  border-radius: 10px;
+}
+.candidate-job-application > strong {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+}
+.candidate-job-application > .button {
+  white-space: normal;
+  font-size: 11px;
+}
+.candidate-favorite-label {
+  background: var(--accent-soft);
+  color: var(--purple);
+  border: 1px solid var(--accent-line);
+  border-radius: 5px;
+  font-size: 9px;
+  padding: 2px 5px;
+}
+.candidate-row-employer-tags {
+  display: block;
+  color: var(--purple);
+  font-size: 10px;
+  margin-top: 9px;
+  overflow-wrap: anywhere;
+}
+.talent-collection-guidance {
+  padding: 28px;
+}
+.talent-collection-guidance h2 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.talent-collection-guidance p {
+  color: var(--muted);
+  max-width: 620px;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.pipeline-application-detail > .candidate-organization {
+  max-width: 620px;
+  margin-bottom: 20px;
+}
+.pipeline-toolbar > .employer-job-filter {
+  margin: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.application-stage-controls {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 12px;
+  padding: 18px;
+  margin: 20px 0;
+}
+.application-stage-controls > div {
+  flex: 1;
+  min-width: 200px;
+}
+.application-stage-controls label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.application-stage-controls select {
+  width: 100%;
+  background: var(--white);
+}
+.application-stage-controls p {
+  width: 100%;
+  font-size: 11px;
+  color: var(--muted);
+  margin: 0;
+}
+.organization-empty-state {
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.organization-empty-state h2 {
+  font-size: 22px;
+}
+.organization-empty-state p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 12px 0;
+}
+@media (max-width: 640px) {
+  .employer-job-filter {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .employer-job-filter select {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    font-size: 16px;
+  }
+  .candidate-tag-input input {
+    font-size: 16px;
+  }
+  .pipeline-toolbar {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .pipeline-toolbar > .employer-job-filter {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .application-stage-controls > div {
+    min-width: 0;
+    width: 100%;
+    flex-basis: 100%;
+  }
+  .application-stage-controls select {
+    font-size: 16px;
+  }
+  .candidate-name {
+    flex-wrap: wrap;
+  }
+  .talent-view-tabs a {
+    font-size: 11px;
+    padding: 9px 11px;
+  }
+  .talent-controls .input-wrap {
+    min-width: 0;
+  }
+}

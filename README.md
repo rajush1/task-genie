@@ -9,13 +9,13 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). This is a static, populated product preview: no account or real credentials are required. Forms are prefilled and intentionally skip text-field validation. The Apply Points balance, application records, verification flag, and freelancer waitlist receipt persist locally in this browser; other screens restore their populated examples on a fresh visit. Interactions never send real applications, waitlist registrations, emails, or messages or charge payments.
+Open [http://localhost:3000](http://localhost:3000). This is a static, populated product preview: no account or real credentials are required. Forms are prefilled and intentionally skip text-field validation. Apply Points, applications, verification, employer Favorites/tags/hiring stages, and the freelancer waitlist receipt persist locally in this browser; other screens restore their populated examples on a fresh visit. Interactions never send real applications, waitlist registrations, emails, or messages or charge payments.
 
 ## Key routes
 
 - Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/spacecrew`, `/freelancer-waitlist`, `/login`, `/signup`, `/about`, `/trust`, `/support`
 - Job seeker: `/dashboard`, `/profile`, `/profile/verification`, `/saved-jobs`, `/applications`, `/apply-points`, `/messages`, `/payments`, `/settings`
-- Employer: `/employer/talent`, `/employer/shortlist`, `/employer/post-job`, `/employer/pipeline`, `/employer/messages`, `/employer/jobs`, `/employer/billing`, `/employer/settings`
+- Employer: `/employer/talent`, `/employer/favorites`, `/employer/shortlist`, `/employer/post-job`, `/employer/pipeline`, `/employer/messages`, `/employer/jobs`, `/employer/billing`, `/employer/settings`
 
 ## Architecture
 
@@ -26,7 +26,7 @@ Open [http://localhost:3000](http://localhost:3000). This is a static, populated
 - `src/components`: interactive prototype surfaces and shared UI
 - `src/server/paypal`: reserved server-only payment adapter boundary (not deployed to Pages)
 
-The prototype uses a typed preview store with browser-local persistence for Apply Points and submitted applications. Every screen includes complete professional content and representative records. Job responsibilities, compensation, schedules, skills, and direct-hiring flows take their content structure from [OnlineJobs.ph](https://www.onlinejobs.ph/), without copying real people's profiles or implying live job availability. Search falls back to relevant recommendations instead of an empty screen. In production, replace fixtures with authenticated repositories while retaining the domain contracts.
+The prototype uses a typed preview store with browser-local persistence for Apply Points, submitted applications, and employer talent organization. Every screen includes complete professional content and representative records. Job responsibilities, compensation, schedules, skills, and direct-hiring flows take their content structure from [OnlineJobs.ph](https://www.onlinejobs.ph/), without copying real people's profiles or implying live job availability. Public job search falls back to relevant recommendations. Employer collections and job filters show only actual matches, with useful actions when a selection has no matches, rather than inserting unrelated profiles. In production, replace fixtures with authenticated repositories while retaining the domain contracts.
 
 The `/spacecrew` marketing page explains SpaceCrew managed VA services alongside Task Genie's self-service marketplace. It shows no SpaceCrew pricing and sends interested employers to SpaceCrewHQ's existing enquiry form; it does not collect enquiries in this prototype.
 
@@ -35,6 +35,14 @@ The `/spacecrew` marketing page explains SpaceCrew managed VA services alongside
 The verified Ana account starts with 40 AP and earns up to 10 more on its first job-seeker workspace or application-page visit each local calendar day. Unused points carry over, capped at 60; visiting at the cap records the day without credit, so spending later that day does not create another grant. Applications require at least one whole point and enough balance, are charged once, and show the chosen points in the employer pipeline. Points cannot be purchased and are not refunded for unsuccessful applications.
 
 The wallet, point history, submitted introductions, and Ana's employer-pipeline stages are stored under `task-genie-apply-points-v1` in localStorage. They are not synchronized across browsers or devices, and clearing this site’s browser data resets the example account. The prototype has no real login, identity check, or secure account ledger. Before production, move daily crediting and atomic application debits to an authenticated server with a canonical timezone, idempotency, and database transactions.
+
+## Employer Favorites, tags, and job shortlists
+
+Favorites are an employer-wide running list available from talent search and application details. A freelancer does not need to apply before being favorited or tagged. Employer tags are free-form, removable, searchable, and filterable; they are separate from the freelancer’s skills and application stages.
+
+Shortlisting is an application stage, never a global freelancer flag. `/employer/shortlist?job=executive-assistant` shows only shortlisted applicants for that role. Each job post links to its own shortlist and filtered pipeline. An employer can shortlist/remove an existing application, and changing one application never changes that freelancer’s applications to other jobs or their Favorites/tags. Profiles without applications have no shortlisting action.
+
+Favorites, tags, and stages for all example applications persist under `task-genie-employer-organization-v1`. Restoration matches application ID, candidate ID, and job ID; a stored stage cannot create a new application. Apply Points and introductions remain in their separate store and are restored first. This is browser-local demonstration data, not a private production employer account. Real deployment needs authenticated employer ownership and server-side checks that the application belongs to the employer’s job.
 
 ## Freelancer waitlist prototype
 

@@ -83,6 +83,12 @@ export function MarketplaceApp({ path }: { path: string }) {
             employer={isEmployer}
             applyPoints={state.applyPoints.balance}
             applicationCount={state.appliedJobIds.length}
+            favoriteCount={state.favoritedCandidateIds.length}
+            shortlistCount={
+              state.applications.filter(
+                (application) => application.stage === "Shortlisted",
+              ).length
+            }
           />
         )}
         <main id="main" className={workspace ? "workspace-main" : ""}>
@@ -149,10 +155,26 @@ function renderRoute(
       />
     );
   if (path === ROUTES.postJob) return <PostJob />;
-  if (path === ROUTES.employerJobs) return <JobManagement />;
+  if (path === ROUTES.employerJobs) return <JobManagement state={state} />;
   if (path === ROUTES.employerBilling) return <BillingPage />;
   if (path === ROUTES.shortlist)
-    return <EmployerTalent state={state} setState={setState} shortlist />;
+    return (
+      <EmployerTalent
+        key="shortlist"
+        state={state}
+        setState={setState}
+        view="shortlist"
+      />
+    );
+  if (path === ROUTES.favorites)
+    return (
+      <EmployerTalent
+        key="favorites"
+        state={state}
+        setState={setState}
+        view="favorites"
+      />
+    );
   if (path === ROUTES.pipeline)
     return <Pipeline state={state} setState={setState} />;
   return <InformationPage kind="support" />;
