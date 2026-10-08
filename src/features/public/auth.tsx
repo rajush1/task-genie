@@ -11,6 +11,7 @@ import {
   Eye,
   EyeOff,
   ShieldCheck,
+  Sparkles,
   Users,
 } from "lucide-react";
 import { ROUTES } from "@/config/product";
@@ -159,6 +160,18 @@ export function AuthPage({ signup = false }: { signup?: boolean }) {
             <ArrowRight size={17} />
           </button>
         </form>
+        {signup && role === "worker" && (
+          <div className="auth-waitlist-note">
+            <Sparkles size={19} aria-hidden="true" />
+            <div>
+              <strong>Prefer to join the freelancer waitlist?</strong>
+              <p>No account needed. You can still explore the prototype.</p>
+              <Link className="text-link" href={ROUTES.waitlist}>
+                Join the waitlist <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+        )}
         <p className="auth-switch">
           {signup ? "Already have an account?" : "New to Task Genie?"}{" "}
           <Link href={signup ? ROUTES.login : ROUTES.signup}>

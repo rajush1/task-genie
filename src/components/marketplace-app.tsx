@@ -14,6 +14,7 @@ import {
   Pricing,
   InformationPage,
   SpaceCrewPage,
+  FreelancerWaitlistPage,
 } from "@/features/public";
 import {
   ApplicationsPage,
@@ -118,6 +119,7 @@ function renderRoute(
   if (path === ROUTES.howItWorks) return <HowItWorks />;
   if (path === ROUTES.pricing) return <Pricing />;
   if (path === ROUTES.spacecrew) return <SpaceCrewPage />;
+  if (path === ROUTES.waitlist) return <FreelancerWaitlistPage />;
   if (path === ROUTES.trust) return <InformationPage kind="trust" />;
   if (path === ROUTES.support) return <InformationPage kind="support" />;
   if (path === ROUTES.about) return <InformationPage kind="about" />;

@@ -12,6 +12,7 @@ export const ROUTES = {
   spacecrew: "/spacecrew",
   login: "/login",
   signup: "/signup",
+  waitlist: "/freelancer-waitlist",
   dashboard: "/dashboard",
   profile: "/profile",
   verification: "/profile/verification",

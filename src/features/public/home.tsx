@@ -312,6 +312,23 @@ export function Home() {
           Meet SpaceCrew <ArrowRight size={16} />
         </Link>
       </section>
+      <section className="container freelancer-waitlist-promo">
+        <span className="waitlist-promo-icon" aria-hidden="true">
+          <Sparkles size={28} />
+        </span>
+        <div>
+          <span className="eyebrow">FOR FREELANCERS</span>
+          <h2>Your next chapter can start anywhere.</h2>
+          <p>
+            Join the worldwide freelancer waitlist and tell us about the work
+            you want to do. No account needed. Explore the prototype while you
+            wait.
+          </p>
+        </div>
+        <Link className="button secondary" href={ROUTES.waitlist}>
+          Join the waitlist <ArrowRight size={16} />
+        </Link>
+      </section>
       <section className="container">
         <div className="cta-banner">
           <div>

@@ -119,6 +119,7 @@ export function Header({
     ["Find jobs", ROUTES.jobs],
     ["Find talent", ROUTES.talent],
     ["Managed VAs", ROUTES.spacecrew],
+    ["Waitlist", ROUTES.waitlist],
     ["How it works", ROUTES.howItWorks],
     ...(path === ROUTES.spacecrew ? [] : [["Pricing", ROUTES.pricing]]),
   ];
@@ -400,6 +401,7 @@ export function Footer({ path }: { path: string }) {
         <div>
           <strong>For professionals</strong>
           <Link href={ROUTES.jobs}>Find remote jobs</Link>
+          <Link href={ROUTES.waitlist}>Freelancer waitlist</Link>
           <Link href={ROUTES.profile}>Build your profile</Link>
           <Link href={ROUTES.dashboard}>Your workspace</Link>
           <Link href={ROUTES.applyPoints}>How Apply Points work</Link>

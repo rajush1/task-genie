@@ -1,0 +1,666 @@
+/* Worldwide freelancer interest signup, aligned with the SpaceCrew skin. */
+.freelancer-waitlist-page {
+  background: var(--white);
+}
+.waitlist-hero {
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 2% 4%, #9333ea4d, transparent 55%),
+    radial-gradient(ellipse at 40% 98%, #ec489933, transparent 42%),
+    linear-gradient(130deg, #151020, #151325 60%, #0f1020);
+}
+.waitlist-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 84px);
+  padding-block: 68px 76px;
+}
+.waitlist-story {
+  min-width: 0;
+  padding-block: 20px;
+}
+.waitlist-kicker {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #e8caff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+.waitlist-kicker > span {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: #d8b4fe;
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #d8b4fe14;
+}
+.waitlist-story h1 {
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  margin: 23px 0;
+  color: #fff;
+}
+.waitlist-story h1 em {
+  color: #e6b2ff;
+  font-style: normal;
+}
+.waitlist-story > p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #d2c9e1;
+  max-width: 440px;
+}
+.waitlist-story .waitlist-jump {
+  margin-top: 22px;
+  color: #f5edff;
+  background: #ffffff0a;
+  border: 1px solid #ffffff60;
+}
+.waitlist-story .waitlist-jump:hover {
+  background: #ffffff19;
+  border-color: #ffffffa0;
+}
+.waitlist-form-card {
+  scroll-margin-top: 100px;
+}
+.waitlist-story-benefits {
+  display: grid;
+  gap: 24px;
+  margin-top: 33px;
+}
+.waitlist-story-benefits > div {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.waitlist-story-benefits svg {
+  color: #d8b4fe;
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+.waitlist-story-benefits strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #f5edff;
+}
+.waitlist-story-benefits small {
+  display: block;
+  color: #bfb4d1;
+  font-size: 12px;
+  line-height: 1.9;
+  margin-top: 6px;
+  max-width: 340px;
+}
+.waitlist-path {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 42px;
+  padding-top: 24px;
+  border-top: 1px solid #ffffff21;
+  color: #d8b4fe;
+  font-size: 10px;
+}
+.waitlist-path > span {
+  display: grid;
+  gap: 6px;
+}
+.waitlist-path strong {
+  color: #e1d9ec;
+  font-size: 11px;
+  font-weight: 500;
+}
+.waitlist-story > .waitlist-story-note {
+  font-size: 11px;
+  color: #bfb4d1;
+  margin-top: 25px;
+}
+.waitlist-story-note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e9c5ff;
+  font-weight: 600;
+}
+.waitlist-form-card {
+  padding: clamp(24px, 2.6vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 28px 70px #0004;
+  min-width: 0;
+}
+.waitlist-form-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--purple);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 22px;
+}
+.waitlist-form-symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  background: var(--accent-soft);
+  color: var(--purple);
+  border: 1px solid var(--accent-line);
+  border-radius: 13px;
+}
+.waitlist-form-card h2 {
+  font-size: clamp(23px, 2.3vw, 29px);
+  line-height: 1.35;
+  letter-spacing: -0.035em;
+  margin: 0 0 10px;
+}
+.waitlist-form-intro {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 23px;
+}
+.waitlist-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
+.waitlist-form-card .field-label {
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  min-width: 0;
+}
+.waitlist-form-card .field-label input,
+.waitlist-form-card .field-label select {
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 10px 11px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+}
+.waitlist-form-card input:focus,
+.waitlist-form-card select:focus {
+  outline: 2px solid var(--accent-line);
+  outline-offset: 2px;
+  border-color: var(--purple);
+}
+.waitlist-form-card .button {
+  min-height: 46px;
+  font-size: 12px;
+  margin-top: 17px;
+}
+.waitlist-form-disclosure {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.waitlist-form-disclosure svg {
+  flex: 0 0 auto;
+  color: var(--purple);
+  margin-top: 2px;
+}
+.waitlist-no-promises {
+  color: var(--muted);
+  font-size: 9px;
+  text-align: center;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.waitlist-cancel {
+  display: block;
+  margin: 17px auto 0;
+  border: 0;
+  background: transparent;
+  color: var(--purple);
+  font-size: 12px;
+  cursor: pointer;
+}
+.waitlist-receipt {
+  text-align: center;
+}
+.waitlist-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto 20px;
+  width: 72px;
+  height: 72px;
+  color: var(--purple);
+  border: 1px solid var(--accent-line);
+  background: var(--accent-soft);
+  border-radius: 22px;
+}
+.waitlist-receipt > .badge {
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  white-space: normal;
+}
+.waitlist-receipt h2 {
+  margin: 18px 0 12px;
+}
+.waitlist-receipt > p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.waitlist-receipt-details {
+  margin: 25px 0 20px;
+  padding: 8px 18px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: left;
+}
+.waitlist-receipt-details > div {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.3fr);
+  gap: 13px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+.waitlist-receipt-details > div:last-child {
+  border: 0;
+}
+.waitlist-receipt-details dt {
+  font-size: 10px;
+  color: var(--muted);
+}
+.waitlist-receipt-details dd {
+  font-size: 11px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.waitlist-prototype-disclosure {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+  padding: 13px;
+  text-align: left;
+}
+.waitlist-prototype-disclosure svg {
+  flex: 0 0 auto;
+  color: var(--purple);
+}
+.waitlist-prototype-disclosure p {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.8;
+  margin: 0;
+}
+.waitlist-secondary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: var(--purple);
+  font-size: 12px;
+  margin-top: 19px;
+}
+.waitlist-next {
+  padding-block: 74px;
+}
+.waitlist-next-heading {
+  text-align: center;
+}
+.waitlist-next-heading .eyebrow,
+.waitlist-faq .eyebrow {
+  font-size: 10px;
+  color: var(--purple);
+}
+.waitlist-next-heading h2,
+.waitlist-faq h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  letter-spacing: -0.035em;
+  line-height: 1.3;
+  margin: 12px 0;
+}
+.waitlist-next-heading > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.waitlist-next-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 23px;
+  margin-top: 35px;
+}
+.waitlist-next-grid article {
+  padding: 27px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface-soft);
+}
+.waitlist-next-grid article > span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--purple);
+  margin-bottom: 20px;
+}
+.waitlist-next-grid h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+.waitlist-next-grid p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 0;
+}
+.waitlist-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 70px;
+  padding-block: 20px 65px;
+}
+.waitlist-faq > div > p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.waitlist-faq-items details {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.waitlist-faq-items details:first-child {
+  padding-top: 7px;
+}
+.waitlist-faq-items summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  list-style: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.waitlist-faq-items summary::-webkit-details-marker {
+  display: none;
+}
+.waitlist-faq-items summary svg {
+  flex: 0 0 auto;
+  color: var(--purple);
+  transition: transform 0.2s;
+}
+.waitlist-faq-items details[open] summary svg {
+  transform: rotate(180deg);
+}
+.waitlist-faq-items details > p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-top: 15px;
+}
+.waitlist-bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-block: 23px 45px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+  text-align: center;
+}
+.waitlist-bottom-note svg {
+  color: var(--purple);
+  flex: 0 0 auto;
+}
+.freelancer-waitlist-promo {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border: 1px solid var(--accent-line);
+  border-radius: 16px;
+  background: var(--accent-soft);
+  margin-block: 26px 42px;
+  padding: 30px;
+}
+.waitlist-promo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--white);
+  color: var(--purple);
+  border: 1px solid var(--accent-line);
+  flex: 0 0 auto;
+}
+.freelancer-waitlist-promo > div {
+  flex: 1;
+  min-width: 0;
+}
+.freelancer-waitlist-promo .eyebrow {
+  color: var(--purple);
+  font-size: 10px;
+}
+.freelancer-waitlist-promo h2 {
+  font-size: 23px;
+  margin: 8px 0;
+}
+.freelancer-waitlist-promo p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 600px;
+}
+.auth-waitlist-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+}
+.auth-waitlist-note > svg {
+  color: var(--purple);
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+.auth-waitlist-note strong {
+  font-size: 12px;
+}
+.auth-waitlist-note p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 5px 0 10px;
+}
+.auth-waitlist-note .text-link {
+  font-size: 11px;
+}
+@media (max-width: 1150px) {
+  .waitlist-hero-grid {
+    gap: 35px;
+    padding-block: 48px 58px;
+  }
+  .waitlist-story h1 {
+    font-size: 49px;
+  }
+  .waitlist-story > p {
+    font-size: 13px;
+  }
+  .site-header .public-nav {
+    gap: 19px;
+  }
+}
+@media (max-width: 900px) {
+  .waitlist-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .waitlist-story h1 {
+    font-size: clamp(43px, 7vw, 61px);
+  }
+  .waitlist-story h1 br:nth-child(2) {
+    display: none;
+  }
+  .waitlist-story > p {
+    max-width: 600px;
+    font-size: 14px;
+  }
+  .waitlist-story-benefits {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .waitlist-story-benefits small {
+    max-width: 100%;
+  }
+  .waitlist-path {
+    margin-top: 28px;
+  }
+  .waitlist-form-card {
+    max-width: 650px;
+    width: 100%;
+    justify-self: center;
+  }
+  .waitlist-faq {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .waitlist-next-grid {
+    gap: 15px;
+  }
+  .waitlist-next-grid article {
+    padding: 21px;
+  }
+  .freelancer-waitlist-promo {
+    flex-wrap: wrap;
+  }
+  .freelancer-waitlist-promo > .button {
+    margin-left: 80px;
+  }
+}
+@media (max-width: 640px) {
+  .waitlist-hero-grid {
+    padding-block: 28px 35px;
+    gap: 28px;
+  }
+  .waitlist-kicker {
+    font-size: 9px;
+  }
+  .waitlist-story {
+    padding-block: 10px 0;
+  }
+  .waitlist-story h1 {
+    font-size: 43px;
+    margin: 23px 0 20px;
+  }
+  .waitlist-story h1 br:nth-child(2) {
+    display: block;
+  }
+  .waitlist-story > p {
+    font-size: 13px;
+  }
+  .waitlist-story-benefits {
+    gap: 20px;
+    margin-top: 25px;
+  }
+  .waitlist-story-benefits strong {
+    font-size: 12px;
+  }
+  .waitlist-story-benefits small {
+    font-size: 11px;
+  }
+  .waitlist-path {
+    gap: 15px;
+  }
+  .waitlist-form-card {
+    padding: 23px 20px;
+    border-radius: 16px;
+  }
+  .waitlist-fields-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .waitlist-form-card .field-label input,
+  .waitlist-form-card .field-label select {
+    font-size: 16px;
+    min-height: 46px;
+  }
+  .waitlist-form-card .field-label {
+    font-size: 12px;
+  }
+  .waitlist-next {
+    padding-block: 45px;
+  }
+  .waitlist-next-grid {
+    grid-template-columns: 1fr;
+    margin-top: 25px;
+  }
+  .waitlist-next-grid article {
+    padding: 23px;
+  }
+  .waitlist-next-grid article > span {
+    margin-bottom: 12px;
+  }
+  .waitlist-faq {
+    padding-block: 10px 25px;
+  }
+  .waitlist-faq h2 {
+    font-size: 27px;
+  }
+  .waitlist-faq-items summary {
+    font-size: 12px;
+  }
+  .waitlist-bottom-note {
+    align-items: flex-start;
+    font-size: 10px;
+    padding-block: 15px 30px;
+  }
+  .waitlist-bottom-note svg {
+    margin-top: 2px;
+  }
+  .freelancer-waitlist-promo {
+    gap: 16px;
+    padding: 23px 20px;
+  }
+  .waitlist-promo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+  .freelancer-waitlist-promo > div {
+    flex-basis: calc(100% - 58px);
+  }
+  .freelancer-waitlist-promo h2 {
+    font-size: 19px;
+  }
+  .freelancer-waitlist-promo > .button {
+    margin-left: 0;
+    width: 100%;
+  }
+}

@@ -9,11 +9,11 @@ pnpm install
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000). This is a static, populated product preview: no account or real credentials are required. Forms are prefilled and intentionally skip text-field validation. The Apply Points balance, application records, and verification flag persist locally in this browser; other screens restore their populated examples on a fresh visit. Interactions never send real applications or messages or charge payments.
+Open [http://localhost:3000](http://localhost:3000). This is a static, populated product preview: no account or real credentials are required. Forms are prefilled and intentionally skip text-field validation. The Apply Points balance, application records, verification flag, and freelancer waitlist receipt persist locally in this browser; other screens restore their populated examples on a fresh visit. Interactions never send real applications, waitlist registrations, emails, or messages or charge payments.
 
 ## Key routes
 
-- Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/spacecrew`, `/login`, `/signup`, `/about`, `/trust`, `/support`
+- Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/spacecrew`, `/freelancer-waitlist`, `/login`, `/signup`, `/about`, `/trust`, `/support`
 - Job seeker: `/dashboard`, `/profile`, `/profile/verification`, `/saved-jobs`, `/applications`, `/apply-points`, `/messages`, `/payments`, `/settings`
 - Employer: `/employer/talent`, `/employer/shortlist`, `/employer/post-job`, `/employer/pipeline`, `/employer/messages`, `/employer/jobs`, `/employer/billing`, `/employer/settings`
 
@@ -35,6 +35,14 @@ The `/spacecrew` marketing page explains SpaceCrew managed VA services alongside
 The verified Ana account starts with 40 AP and earns up to 10 more on its first job-seeker workspace or application-page visit each local calendar day. Unused points carry over, capped at 60; visiting at the cap records the day without credit, so spending later that day does not create another grant. Applications require at least one whole point and enough balance, are charged once, and show the chosen points in the employer pipeline. Points cannot be purchased and are not refunded for unsuccessful applications.
 
 The wallet, point history, submitted introductions, and Ana's employer-pipeline stages are stored under `task-genie-apply-points-v1` in localStorage. They are not synchronized across browsers or devices, and clearing this site’s browser data resets the example account. The prototype has no real login, identity check, or secure account ledger. Before production, move daily crediting and atomic application debits to an authenticated server with a canonical timezone, idempotency, and database transactions.
+
+## Freelancer waitlist prototype
+
+The worldwide `/freelancer-waitlist` interest-registration page is linked from the homepage, public navigation, footer, and freelancer signup. Its short professional profile form is prefilled and has no blocking field validation. Submission shows a reviewable receipt; returning visitors can edit their details rather than create a duplicate entry. It is separate from account registration, job applications, Apply Points, and SpaceCrew managed services.
+
+The page follows the signup pattern on [StreetTeams](https://www.streetteams.com/join/), adapted from local creators to worldwide freelancers with country/time zone, professional expertise, experience, availability, and portfolio. It does not copy StreetTeams branding or its US-only ZIP requirement.
+
+A single visitor's entry is stored locally under `task-genie-freelancer-waitlist-v1`. There is no live waitlist database, employer access to these details, queue ranking, or email delivery. Storage failures keep an in-memory receipt for the current visit. Before launch, add an authenticated administration workflow, a consent/privacy policy, secure collection endpoint, deduplication, and email delivery. Browser-local receipts are not production registrations.
 
 ## Visual skin
 

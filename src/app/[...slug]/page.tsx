@@ -11,6 +11,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug.join("/") === "freelancer-waitlist")
+    return {
+      title: "Freelancer waitlist",
+      description:
+        "Join the Task Genie freelancer waitlist from anywhere in the world. Share your skills, availability, and professional focus.",
+    };
   if (slug.join("/") !== "spacecrew") return {};
   return {
     title: "SpaceCrew — Managed virtual assistant services",
