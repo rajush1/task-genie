@@ -185,23 +185,30 @@ export function SettingsPage({ employer = false }: { employer?: boolean }) {
             />
             <TextField
               label={employer ? "Company name" : "Location"}
-              defaultValue={
-                employer ? "Northstar Commerce" : "Cebu City, Philippines"
-              }
+              defaultValue={employer ? "Northstar Commerce" : "Toronto, Canada"}
+            />
+            {employer && (
+              <TextField
+                label="Company location"
+                defaultValue="New York, United States"
+                placeholder="City, country or region"
+              />
+            )}
+            <TextField
+              label="Country or region"
+              defaultValue={employer ? "United States" : "Canada"}
+              placeholder="e.g. United States, India, or Brazil"
             />
             <TextField
               label="Time zone"
-              defaultValue={
-                employer ? "America/New_York (UTC−4)" : "Asia/Manila (UTC+8)"
-              }
+              defaultValue={employer ? "America/New_York" : "America/Toronto"}
+              placeholder="e.g. Europe/London"
             />
-            <label className="field-label">
-              Preferred currency
-              <select>
-                <option>USD · US Dollar</option>
-                <option>PHP · Philippine Peso</option>
-              </select>
-            </label>
+            <TextField
+              label="Preferred currency"
+              defaultValue="USD"
+              placeholder="e.g. USD, EUR, or INR"
+            />
           </div>
           {employer && (
             <TextField

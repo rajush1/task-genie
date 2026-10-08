@@ -60,7 +60,7 @@ export function HowItWorks() {
           <em>a good connection.</em>
         </h1>
         <p>
-          Find Filipino professionals, discover remote roles, and build working
+          Find professionals worldwide, discover remote roles, and build working
           relationships with clear expectations from day one.
         </p>
         <div className="button-row">
@@ -335,7 +335,7 @@ export function InformationPage({
           trust
             ? "Practical tools and clear information to help you hire and work with confidence."
             : about
-              ? "We connect Filipino professionals and global teams around one shared ambition: meaningful, lasting work."
+              ? "We connect professionals and teams worldwide around one shared ambition: meaningful, lasting work."
               : "Explore answers, practical resources, and ways to keep your search moving."
         }
       />

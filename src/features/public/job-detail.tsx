@@ -344,7 +344,7 @@ export function ApplyPage({
                 </div>
                 <div>
                   <dt>Location</dt>
-                  <dd>Cebu, Philippines</dd>
+                  <dd>Toronto, Canada</dd>
                 </div>
               </dl>
               <Link className="text-link" href={ROUTES.profile}>

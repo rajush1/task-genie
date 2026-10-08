@@ -1,6 +1,6 @@
 # Task Genie
 
-Task Genie is a production-minded prototype for a two-sided remote hiring marketplace connecting Filipino professionals with global employers. It uses trust-first minimalism for public and job-seeker experiences, with a denser recruiting command center for employers.
+Task Genie is a production-minded prototype for a worldwide, two-sided remote hiring marketplace connecting professionals and employers across countries. It uses trust-first minimalism for public and job-seeker experiences, with a denser recruiting command center for employers.
 
 ## Run locally
 

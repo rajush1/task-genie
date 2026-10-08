@@ -64,7 +64,7 @@ export function AuthPage({ signup = false }: { signup?: boolean }) {
         <h1>{signup ? "Make your next move." : "Good to see you again."}</h1>
         <p>
           {signup
-            ? "Choose your path and explore what comes next."
+            ? "Join from anywhere in the world and explore what comes next."
             : "Your next opportunity is waiting in your workspace."}
         </p>
         <div className="role-choice">
@@ -86,6 +86,7 @@ export function AuthPage({ signup = false }: { signup?: boolean }) {
           </button>
         </div>
         <form
+          key={role}
           noValidate
           onSubmit={(event) => {
             event.preventDefault();
@@ -93,10 +94,24 @@ export function AuthPage({ signup = false }: { signup?: boolean }) {
           }}
         >
           {signup && (
-            <TextField
-              label="Full name"
-              defaultValue={role === "worker" ? "Ana Mendoza" : "Emma Wilson"}
-            />
+            <>
+              <TextField
+                label="Full name"
+                defaultValue={role === "worker" ? "Ana Mendoza" : "Emma Wilson"}
+              />
+              <TextField
+                label="Country or region"
+                defaultValue={role === "worker" ? "Canada" : "United States"}
+                placeholder="e.g. Canada, India, or Brazil"
+              />
+              <TextField
+                label="Time zone"
+                defaultValue={
+                  role === "worker" ? "America/Toronto" : "America/New_York"
+                }
+                placeholder="e.g. Asia/Kolkata"
+              />
+            </>
           )}
           <TextField
             label="Email address"

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s · Task Genie",
   },
   description:
-    "A trusted marketplace connecting Filipino remote professionals with thoughtful global teams.",
+    "A trusted worldwide marketplace connecting remote professionals with thoughtful teams.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

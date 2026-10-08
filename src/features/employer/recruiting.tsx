@@ -237,8 +237,7 @@ export function JobManagement() {
                 <div>
                   <h2>{job.title}</h2>
                   <p>
-                    {job.employmentType} · {job.weeklyHours} · Philippines,
-                    remote
+                    {job.employmentType} · {job.weeklyHours} · {job.location}
                   </p>
                 </div>
                 <Badge

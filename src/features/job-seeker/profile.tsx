@@ -57,7 +57,7 @@ export function ProfilePage({
               <h2>
                 Ana Mendoza <BadgeCheck size={19} />
               </h2>
-              <p>Cebu City, Philippines · Member since 2021</p>
+              <p>Toronto, Canada · Member since 2021</p>
             </div>
           </div>
           <h3>Professional introduction</h3>
@@ -291,7 +291,7 @@ export function VerificationPage({
             <div>
               <h2>ANA MENDOZA</h2>
               <p>Executive Virtual Assistant · E-commerce Operations</p>
-              <span>Cebu City, Philippines · ana.mendoza@outlook.com</span>
+              <span>Toronto, Canada · ana.mendoza@outlook.com</span>
             </div>
             <h4>PROFESSIONAL SUMMARY</h4>
             <p>
@@ -304,8 +304,8 @@ export function VerificationPage({
             <span>Brightline Commerce | 2021–2026</span>
             <ul>
               <li>
-                Coordinated executive calendars across US, UK, and Philippine
-                time zones.
+                Coordinated executive calendars across North American and
+                European time zones.
               </li>
               <li>
                 Maintained Shopify listings and supported daily order

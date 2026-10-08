@@ -26,6 +26,7 @@ export interface Candidate {
   name: string;
   role: string;
   location: string;
+  country: string;
   availability: string;
   desiredPay: string;
   lastActive: string;

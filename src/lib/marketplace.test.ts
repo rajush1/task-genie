@@ -28,6 +28,19 @@ describe("marketplace logic", () => {
 });
 
 describe("populated product preview", () => {
+  it("offers worldwide roles and professionals across regions", () => {
+    expect(jobs.every((job) => job.location === "Remote · Worldwide")).toBe(
+      true,
+    );
+    expect(
+      new Set(candidates.map((candidate) => candidate.country)).size,
+    ).toBeGreaterThanOrEqual(6);
+    expect(
+      candidates.every((candidate) =>
+        candidate.location.includes(candidate.country),
+      ),
+    ).toBe(true);
+  });
   it("starts with complete records in saved, applied, shortlisted, and hiring views", () => {
     expect(
       defaultState.savedJobIds.every((id) => jobs.some((job) => job.id === id)),

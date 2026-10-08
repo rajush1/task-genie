@@ -62,7 +62,7 @@ export function Dashboard({ state }: { state: MarketplaceState }) {
             <Avatar name="Ana Mendoza" tone="coral" large />
             <div>
               <h2>Your profile is ready to shine.</h2>
-              <p>Executive Virtual Assistant · Cebu, Philippines</p>
+              <p>Executive Virtual Assistant · Toronto, Canada</p>
             </div>
             <Badge>
               <BadgeCheck size={14} />

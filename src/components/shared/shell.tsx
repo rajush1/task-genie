@@ -71,7 +71,11 @@ export function Logo() {
 }
 
 function ThemeToggle() {
-  const theme = useSyncExternalStore(subscribeToTheme, currentTheme, () => "light");
+  const theme = useSyncExternalStore(
+    subscribeToTheme,
+    currentTheme,
+    () => "light",
+  );
 
   function toggleTheme() {
     const nextTheme = theme === "dark" ? "light" : "dark";
@@ -359,7 +363,7 @@ export function Footer() {
         <div className="footer-brand">
           <Logo />
           <p>
-            Connecting Filipino professionals
+            Connecting professionals worldwide
             <br />
             with teams around the world.
           </p>

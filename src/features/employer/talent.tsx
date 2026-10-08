@@ -31,6 +31,7 @@ export function EmployerTalent({
   const [selected, setSelected] = useState(candidates[0].id);
   const [compare, setCompare] = useState(false);
   const [skill, setSkill] = useState("All skills");
+  const [country, setCountry] = useState("All countries");
   const [availability, setAvailability] = useState("Any availability");
   const [verified, setVerified] = useState(false);
   const pool = shortlist
@@ -45,6 +46,7 @@ export function EmployerTalent({
         .toLowerCase()
         .includes(query.toLowerCase()) &&
       (skill === "All skills" || candidate.skills.includes(skill)) &&
+      (country === "All countries" || candidate.country === country) &&
       (!verified || candidate.verified) &&
       (availability === "Any availability" ||
         candidate.availability.includes("Available now")),
@@ -77,7 +79,7 @@ export function EmployerTalent({
         text={
           shortlist
             ? "Compare your saved professionals and keep the conversation moving."
-            : "Find Filipino professionals with the skills and experience your team needs."
+            : "Find professionals worldwide with the skills and experience your team needs."
         }
         action={
           <Link className="button" href={ROUTES.postJob}>
@@ -105,6 +107,18 @@ export function EmployerTalent({
           <option>Shopify</option>
           <option>QuickBooks</option>
           <option>WordPress</option>
+        </select>
+        <select
+          aria-label="Filter candidates by country"
+          value={country}
+          onChange={(event) => setCountry(event.target.value)}
+        >
+          <option>All countries</option>
+          {[...new Set(candidates.map((candidate) => candidate.country))]
+            .sort()
+            .map((candidateCountry) => (
+              <option key={candidateCountry}>{candidateCountry}</option>
+            ))}
         </select>
         <select
           aria-label="Filter availability"

@@ -60,8 +60,8 @@ export function Home() {
             <em>Made possible.</em>
           </h1>
           <p>
-            Connect with skilled Filipino professionals and global teams. Find
-            the right fit for a full-time role, a part-time opportunity, or your
+            Connect with skilled professionals and teams worldwide. Find the
+            right fit for a full-time role, a part-time opportunity, or your
             next big project.
           </p>
           <div className="hero-search">
@@ -150,7 +150,7 @@ export function Home() {
                 </div>
                 <div>
                   <small>LOCATION</small>
-                  <strong>Philippines</strong>
+                  <strong>Mexico</strong>
                 </div>
               </div>
               <div className="tags">
@@ -310,7 +310,7 @@ export function Home() {
           </div>
           <div>
             <Link className="button white" href={ROUTES.talent}>
-              Hire Filipino talent <ArrowRight size={16} />
+              Hire global talent <ArrowRight size={16} />
             </Link>
             <Link className="button ghost-light" href={ROUTES.jobs}>
               Find remote work <ArrowRight size={16} />

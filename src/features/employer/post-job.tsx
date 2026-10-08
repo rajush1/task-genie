@@ -27,6 +27,7 @@ interface JobDraft {
   salaryMin: string;
   salaryMax: string;
   currency: string;
+  location: string;
   timezone: string;
   summary: string;
   skills: string;
@@ -42,6 +43,7 @@ const initialDraft: JobDraft = {
   salaryMin: "1000",
   salaryMax: "1400",
   currency: "USD",
+  location: "Remote · Worldwide",
   timezone: "4 hours with US Eastern",
   summary:
     "We are looking for an organized Executive Assistant to support our founder and remote e-commerce team. You will coordinate calendars across time zones, maintain Notion project boards, manage follow-ups, and keep our HubSpot records accurate. We value clear written communication, reliable follow-through, and the ability to spot small improvements in everyday workflows.",
@@ -232,15 +234,18 @@ export function PostJob() {
                   onChange={field("salaryMax")}
                 />
               </div>
-              <label className="field-label">
-                Pay currency
-                <select value={draft.currency} onChange={field("currency")}>
-                  <option>USD</option>
-                  <option>PHP</option>
-                  <option>GBP</option>
-                  <option>AUD</option>
-                </select>
-              </label>
+              <TextField
+                label="Pay currency"
+                value={draft.currency}
+                placeholder="e.g. USD, EUR, or INR"
+                onChange={field("currency")}
+              />
+              <TextField
+                label="Hiring location"
+                value={draft.location}
+                placeholder="Remote · Worldwide"
+                onChange={field("location")}
+              />
               <TextField
                 label="Working schedule / overlap"
                 value={draft.timezone}
@@ -294,7 +299,7 @@ export function PostJob() {
                 <Badge>Verified employer</Badge>
               </div>
               <h2>{draft.title || initialDraft.title}</h2>
-              <p className="muted">Northstar Commerce · Philippines, remote</p>
+              <p className="muted">Northstar Commerce · {draft.location}</p>
               <div className="detail-facts">
                 <div>
                   <small>PAY RANGE</small>
