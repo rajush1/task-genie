@@ -25,7 +25,7 @@
   align-items: center;
   gap: 9px;
   color: #e8caff;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.15em;
 }
@@ -91,7 +91,7 @@
 .waitlist-story-benefits small {
   display: block;
   color: #bfb4d1;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
   margin-top: 6px;
   max-width: 340px;
@@ -104,7 +104,7 @@
   padding-top: 24px;
   border-top: 1px solid #ffffff21;
   color: #d8b4fe;
-  font-size: 10px;
+  font-size: 13px;
 }
 .waitlist-path > span {
   display: grid;
@@ -112,11 +112,11 @@
 }
 .waitlist-path strong {
   color: #e1d9ec;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
 }
 .waitlist-story > .waitlist-story-note {
-  font-size: 11px;
+  font-size: 13px;
   color: #bfb4d1;
   margin-top: 25px;
 }
@@ -141,7 +141,7 @@
   align-items: center;
   gap: 11px;
   color: var(--purple);
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.06em;
   margin-bottom: 22px;
@@ -164,7 +164,7 @@
   margin: 0 0 10px;
 }
 .waitlist-form-intro {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
   margin-bottom: 23px;
@@ -175,7 +175,7 @@
   gap: 15px;
 }
 .waitlist-form-card .field-label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   margin-bottom: 16px;
   min-width: 0;
@@ -191,7 +191,7 @@
   border: 1px solid var(--line);
   border-radius: 8px;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 400;
 }
 .waitlist-form-card input:focus,
@@ -202,14 +202,14 @@
 }
 .waitlist-form-card .button {
   min-height: 46px;
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 17px;
 }
 .waitlist-form-disclosure {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
   margin-top: 2px;
@@ -221,7 +221,7 @@
 }
 .waitlist-no-promises {
   color: var(--muted);
-  font-size: 9px;
+  font-size: 13px;
   text-align: center;
   line-height: 1.8;
   margin-top: 12px;
@@ -232,7 +232,7 @@
   border: 0;
   background: transparent;
   color: var(--purple);
-  font-size: 12px;
+  font-size: 13px;
   cursor: pointer;
 }
 .waitlist-receipt {
@@ -251,7 +251,7 @@
   border-radius: 22px;
 }
 .waitlist-receipt > .badge {
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.05em;
   white-space: normal;
 }
@@ -260,7 +260,7 @@
 }
 .waitlist-receipt > p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
 }
 .waitlist-receipt-details {
@@ -282,11 +282,11 @@
   border: 0;
 }
 .waitlist-receipt-details dt {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--muted);
 }
 .waitlist-receipt-details dd {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
   font-weight: 600;
   color: var(--ink);
@@ -309,7 +309,7 @@
 }
 .waitlist-prototype-disclosure p {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 0;
 }
@@ -319,7 +319,7 @@
   justify-content: center;
   gap: 7px;
   color: var(--purple);
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 19px;
 }
 .waitlist-next {
@@ -330,7 +330,7 @@
 }
 .waitlist-next-heading .eyebrow,
 .waitlist-faq .eyebrow {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--purple);
 }
 .waitlist-next-heading h2,
@@ -370,7 +370,7 @@
 }
 .waitlist-next-grid p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
   margin: 0;
 }
@@ -415,7 +415,7 @@
   transform: rotate(180deg);
 }
 .waitlist-faq-items details > p {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
   color: var(--muted);
   margin-top: 15px;
@@ -427,7 +427,7 @@
   gap: 8px;
   padding-block: 23px 45px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   text-align: center;
 }
@@ -463,7 +463,7 @@
 }
 .freelancer-waitlist-promo .eyebrow {
   color: var(--purple);
-  font-size: 10px;
+  font-size: 13px;
 }
 .freelancer-waitlist-promo h2 {
   font-size: 23px;
@@ -471,7 +471,7 @@
 }
 .freelancer-waitlist-promo p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
   max-width: 600px;
 }
@@ -491,16 +491,16 @@
   margin-top: 2px;
 }
 .auth-waitlist-note strong {
-  font-size: 12px;
+  font-size: 13px;
 }
 .auth-waitlist-note p {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
   margin: 5px 0 10px;
 }
 .auth-waitlist-note .text-link {
-  font-size: 11px;
+  font-size: 13px;
 }
 @media (max-width: 1150px) {
   .waitlist-hero-grid {
@@ -570,7 +570,7 @@
     gap: 28px;
   }
   .waitlist-kicker {
-    font-size: 9px;
+    font-size: 13px;
   }
   .waitlist-story {
     padding-block: 10px 0;
@@ -590,10 +590,10 @@
     margin-top: 25px;
   }
   .waitlist-story-benefits strong {
-    font-size: 12px;
+    font-size: 13px;
   }
   .waitlist-story-benefits small {
-    font-size: 11px;
+    font-size: 13px;
   }
   .waitlist-path {
     gap: 15px;
@@ -612,7 +612,7 @@
     min-height: 46px;
   }
   .waitlist-form-card .field-label {
-    font-size: 12px;
+    font-size: 13px;
   }
   .waitlist-next {
     padding-block: 45px;
@@ -634,11 +634,11 @@
     font-size: 27px;
   }
   .waitlist-faq-items summary {
-    font-size: 12px;
+    font-size: 13px;
   }
   .waitlist-bottom-note {
     align-items: flex-start;
-    font-size: 10px;
+    font-size: 13px;
     padding-block: 15px 30px;
   }
   .waitlist-bottom-note svg {

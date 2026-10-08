@@ -27,7 +27,7 @@
 }
 .points-summary .eyebrow,
 .points-wallet .eyebrow {
-  font-size: 10px;
+  font-size: 13px;
   color: var(--purple);
 }
 .points-balance {
@@ -53,7 +53,7 @@
 }
 .points-summary p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.7;
   margin: 4px 0 0;
 }
@@ -80,7 +80,7 @@
   margin-bottom: 27px;
 }
 .points-wallet-heading .badge {
-  font-size: 10px;
+  font-size: 13px;
   white-space: normal;
   text-align: center;
 }
@@ -89,7 +89,7 @@
   align-items: center;
   justify-content: space-between;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 23px;
   margin-bottom: 10px;
 }
@@ -98,7 +98,7 @@
 }
 .points-wallet > p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
   margin-top: 16px;
 }
@@ -120,12 +120,12 @@
 }
 .points-daily-status strong {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--ink);
 }
 .points-daily-status span {
   display: block;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.7;
   color: var(--muted);
   margin-top: 5px;
@@ -134,7 +134,7 @@
   margin-top: 15px;
 }
 .points-how > .eyebrow {
-  font-size: 9px;
+  font-size: 13px;
   color: var(--purple);
 }
 .points-how h2 {
@@ -160,7 +160,7 @@
   flex: 0 0 32px;
   height: 32px;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--purple);
   background: var(--accent-soft);
@@ -170,7 +170,7 @@
   margin: 1px 0 5px;
 }
 .points-how li p {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 0;
   color: var(--muted);
@@ -191,7 +191,7 @@
 .points-interest-note p {
   margin: 0;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.8;
 }
 .points-history .table-title {
@@ -203,7 +203,7 @@
 .points-history .table-title p {
   margin: 6px 0 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .points-transaction {
   display: flex;
@@ -236,17 +236,17 @@
 }
 .points-transaction > div strong {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.5;
 }
 .points-transaction time {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--muted);
   margin-top: 5px;
 }
 .points-transaction > strong {
-  font-size: 12px;
+  font-size: 13px;
   white-space: nowrap;
 }
 .points-earned {
@@ -257,7 +257,7 @@
 }
 .points-prototype-note {
   margin: 18px 0 0;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
 }
@@ -274,11 +274,11 @@
 }
 .points-inline-balance strong {
   display: block;
-  font-size: 12px;
+  font-size: 13px;
 }
 .points-inline-balance small {
   display: block;
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.7;
   color: var(--muted);
   margin-top: 4px;
@@ -314,7 +314,7 @@
   margin: 0 0 6px;
 }
 .points-picker-heading p {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--muted);
   margin: 0;
   line-height: 1.8;
@@ -352,7 +352,7 @@
   color: var(--purple);
   min-height: 38px;
   padding: 7px 11px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 }
 .points-quick-picks button[aria-pressed="true"] {
@@ -372,7 +372,7 @@
   border-top: 1px solid var(--accent-line);
   border-bottom: 1px solid var(--accent-line);
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
 }
 .points-spending-summary strong {
   display: block;
@@ -381,7 +381,7 @@
   font-size: 16px;
 }
 .points-picker-note {
-  font-size: 10px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
   margin: 13px 0 0;
@@ -393,7 +393,7 @@
   text-underline-offset: 3px;
 }
 .points-attention {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 15px 0 0;
   color: var(--ink);
@@ -403,7 +403,7 @@
   justify-content: center;
   align-items: center;
   gap: 9px;
-  font-size: 12px !important;
+  font-size: 13px !important;
   color: var(--purple) !important;
 }
 .application-sent-copy {
@@ -416,7 +416,7 @@
 }
 .application-sent-copy summary {
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--purple);
 }
@@ -428,14 +428,14 @@
 .application-sent-copy p,
 .application-introduction-message {
   white-space: pre-wrap;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
 }
 .application-row > div > .application-points {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--purple);
 }
 .apply-points-explainer {
@@ -443,7 +443,7 @@
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.8;
   margin: 16px 0;
 }
@@ -492,7 +492,7 @@
 }
 .application-detail-body p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.9;
 }
 .application-detail-body .tags {
@@ -523,7 +523,7 @@
 }
 .application-introduction time {
   color: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
 }
 @media (max-width: 1100px) {
   .points-wallet-layout {
@@ -571,10 +571,10 @@
     gap: 10px;
   }
   .points-transaction > div strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .points-transaction > strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .points-transaction .icon-button {
     display: none;

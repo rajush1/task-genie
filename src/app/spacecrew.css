@@ -78,7 +78,7 @@ h1,h2,h3,.section-heading h2,.hero-copy h1,.cta-banner h2,.home-steps h3,.job-ca
 /* footer: black */
 .site-footer{background:#000;border-top:0;color:#fff;padding-top:48px}
 .site-footer .tg-logo-light{display:none}.site-footer .tg-logo-dark{display:block;height:36px}
-.footer-grid h4,.footer-grid strong{color:#fff;text-transform:uppercase;letter-spacing:.06em;font-size:12px}
+.footer-grid h4,.footer-grid strong{color:#fff;text-transform:uppercase;letter-spacing:.06em;font-size:13px}
 .footer-grid a,.footer-brand p,.footer-brand span{color:#d1d5db}
 .footer-grid a:hover{color:#fff}
 .footer-bottom{border-top-color:#1f2937;color:#9ca3af}

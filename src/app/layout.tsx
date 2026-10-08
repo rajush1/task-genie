@@ -8,6 +8,7 @@ import "./freelancer-waitlist.css";
 import "./employer-organization.css";
 import "./ui-polish.css";
 import "./brand-surfaces.css";
+import "./readability.css";
 
 export const metadata: Metadata = {
   title: {
