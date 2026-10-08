@@ -13,7 +13,7 @@ Open [http://localhost:3000](http://localhost:3000). This is a static, populated
 
 ## Key routes
 
-- Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/login`, `/signup`, `/about`, `/trust`, `/support`
+- Public: `/`, `/jobs`, `/jobs/executive-assistant`, `/how-it-works`, `/pricing`, `/spacecrew`, `/login`, `/signup`, `/about`, `/trust`, `/support`
 - Job seeker: `/dashboard`, `/profile`, `/profile/verification`, `/saved-jobs`, `/applications`, `/messages`, `/payments`, `/settings`
 - Employer: `/employer/talent`, `/employer/shortlist`, `/employer/post-job`, `/employer/pipeline`, `/employer/messages`, `/employer/jobs`, `/employer/billing`, `/employer/settings`
 
@@ -27,6 +27,8 @@ Open [http://localhost:3000](http://localhost:3000). This is a static, populated
 - `src/server/paypal`: reserved server-only payment adapter boundary (not deployed to Pages)
 
 The prototype uses a typed, in-memory preview store. Every screen includes complete professional content and representative records. Job responsibilities, compensation, schedules, skills, and direct-hiring flows take their content structure from [OnlineJobs.ph](https://www.onlinejobs.ph/), without copying real people's profiles or implying live job availability. Search falls back to relevant recommendations instead of an empty screen. In production, replace fixtures with authenticated repositories while retaining the domain contracts.
+
+The `/spacecrew` marketing page explains SpaceCrew managed VA services alongside Task Genie's self-service marketplace. It shows no SpaceCrew pricing and sends interested employers to SpaceCrewHQ's existing enquiry form; it does not collect enquiries in this prototype.
 
 ## Visual skin
 

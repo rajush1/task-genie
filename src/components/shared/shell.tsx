@@ -117,8 +117,9 @@ export function Header({
   const publicLinks = [
     ["Find jobs", ROUTES.jobs],
     ["Find talent", ROUTES.talent],
+    ["Managed VAs", ROUTES.spacecrew],
     ["How it works", ROUTES.howItWorks],
-    ["Pricing", ROUTES.pricing],
+    ...(path === ROUTES.spacecrew ? [] : [["Pricing", ROUTES.pricing]]),
   ];
   return (
     <header className={cx("site-header", path === "/" && "home-header")}>
@@ -356,7 +357,7 @@ export function WorkspaceSidebar({
   );
 }
 
-export function Footer() {
+export function Footer({ path }: { path: string }) {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
@@ -368,14 +369,20 @@ export function Footer() {
             with teams around the world.
           </p>
           <span>
-            <ShieldCheck size={14} /> Remote work. Direct relationships.
+            <ShieldCheck size={14} />{" "}
+            {path === ROUTES.spacecrew
+              ? "Managed support. Thoughtful teams."
+              : "Remote work. Direct relationships."}
           </span>
         </div>
         <div>
           <strong>For employers</strong>
           <Link href={ROUTES.talent}>Find talent</Link>
           <Link href={ROUTES.postJob}>Post a job</Link>
-          <Link href={ROUTES.pricing}>Plans & pricing</Link>
+          <Link href={ROUTES.spacecrew}>Managed VA services</Link>
+          {path !== ROUTES.spacecrew && (
+            <Link href={ROUTES.pricing}>Plans & pricing</Link>
+          )}
           <Link href={ROUTES.howItWorks}>How hiring works</Link>
         </div>
         <div>

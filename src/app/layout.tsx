@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./spacecrew.css";
 import "./spacecrew-app.css";
+import "./spacecrew-landing.css";
 
 export const metadata: Metadata = {
   title: {

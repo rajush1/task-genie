@@ -3,3 +3,4 @@ export { JobsPage } from "./jobs";
 export { JobDetail, ApplyPage } from "./job-detail";
 export { HowItWorks, Pricing, InformationPage } from "./marketing";
 export { AuthPage } from "./auth";
+export { SpaceCrewPage } from "./spacecrew";

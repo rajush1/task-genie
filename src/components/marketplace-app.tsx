@@ -13,6 +13,7 @@ import {
   JobsPage,
   Pricing,
   InformationPage,
+  SpaceCrewPage,
 } from "@/features/public";
 import {
   ApplicationsPage,
@@ -42,7 +43,9 @@ export function MarketplaceApp({ path }: { path: string }) {
 
   useEffect(() => {
     const readQuery = () =>
-      setInitialQuery(new URLSearchParams(window.location.search).get("q") ?? "");
+      setInitialQuery(
+        new URLSearchParams(window.location.search).get("q") ?? "",
+      );
     readQuery();
     window.addEventListener("popstate", readQuery);
     return () => window.removeEventListener("popstate", readQuery);
@@ -76,7 +79,7 @@ export function MarketplaceApp({ path }: { path: string }) {
           {renderRoute(path, state, setState, initialQuery)}
         </main>
       </div>
-      {!workspace && <Footer />}
+      {!workspace && <Footer path={path} />}
     </div>
   );
 }
@@ -105,6 +108,7 @@ function renderRoute(
     return <JobDetail id={detail[1]} state={state} setState={setState} />;
   if (path === ROUTES.howItWorks) return <HowItWorks />;
   if (path === ROUTES.pricing) return <Pricing />;
+  if (path === ROUTES.spacecrew) return <SpaceCrewPage />;
   if (path === ROUTES.trust) return <InformationPage kind="trust" />;
   if (path === ROUTES.support) return <InformationPage kind="support" />;
   if (path === ROUTES.about) return <InformationPage kind="about" />;

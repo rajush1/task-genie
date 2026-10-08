@@ -9,6 +9,7 @@ export const ROUTES = {
   job: (id: string) => `/jobs/${id}`,
   howItWorks: "/how-it-works",
   pricing: "/pricing",
+  spacecrew: "/spacecrew",
   login: "/login",
   signup: "/signup",
   dashboard: "/dashboard",

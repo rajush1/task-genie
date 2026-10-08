@@ -299,6 +299,19 @@ export function Home() {
           </div>
         </div>
       </section>
+      <section className="container spacecrew-home-promo">
+        <div>
+          <span className="eyebrow">INTRODUCING SPACECREW</span>
+          <h2>Need a team behind your next teammate?</h2>
+          <p>
+            Explore managed virtual assistant services from the company behind
+            Task Genie.
+          </p>
+        </div>
+        <Link className="button" href={ROUTES.spacecrew}>
+          Meet SpaceCrew <ArrowRight size={16} />
+        </Link>
+      </section>
       <section className="container">
         <div className="cta-banner">
           <div>
