@@ -7,10 +7,7 @@
   position: relative;
   overflow: hidden;
   color: #fff;
-  background:
-    radial-gradient(circle at 76% 34%, #9333ea55 0, transparent 34%),
-    radial-gradient(circle at 8% 92%, #ec489933 0, transparent 32%),
-    linear-gradient(132deg, #11101e 0%, #1d1332 52%, #141324 100%);
+  background: var(--grad);
 }
 
 .spacecrew-hero::after {
@@ -38,6 +35,7 @@
 }
 
 .spacecrew-hero-copy {
+  min-width: 0;
   max-width: 650px;
 }
 
@@ -575,9 +573,7 @@
   padding: 50px;
   border-radius: 18px;
   color: #fff;
-  background:
-    radial-gradient(circle at 89% 50%, #a855f770, transparent 28%),
-    linear-gradient(112deg, #13111d, #241138 80%);
+  background: var(--grad-dark);
 }
 
 .spacecrew-final::after {
@@ -664,10 +660,38 @@
   background: var(--canvas);
 }
 
-:root[data-theme="dark"] .spacecrew-hero {
-  background:
-    radial-gradient(circle at 76% 34%, #6657d05e 0, transparent 34%),
-    linear-gradient(132deg, #0c0b16, #19152d 60%, #0d0d17);
+/* The hero uses the same light/dark gradient token as the homepage. */
+:root:not([data-theme="dark"])
+  .spacecrew-hero
+  :is(
+    .spacecrew-brand > svg,
+    .spacecrew-kicker,
+    h1 em,
+    .spacecrew-hero-copy > p,
+    .spacecrew-quiet-link,
+    .spacecrew-hero-note,
+    .spacecrew-hero-note svg
+  ) {
+  color: #fff;
+}
+
+:root:not([data-theme="dark"]) .spacecrew-hero .spacecrew-primary {
+  color: #7e22ce;
+  background: #fff;
+  border-color: #fff;
+}
+
+:root:not([data-theme="dark"]) .spacecrew-hero .spacecrew-primary:hover {
+  background: #faf5ff;
+  border-color: #faf5ff;
+}
+
+:root:not([data-theme="dark"]) .spacecrew-orbit {
+  border-color: #ffffff50;
+}
+
+:root:not([data-theme="dark"]) .spacecrew-orbit-two {
+  background: #ffffff14;
 }
 
 :root[data-theme="dark"] .spacecrew-intro,
@@ -724,7 +748,7 @@
 
 @media (max-width: 760px) {
   .spacecrew-hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
     padding-block: 50px 65px;
   }
@@ -796,13 +820,17 @@
 
 @media (max-width: 500px) {
   .spacecrew-brand {
+    flex-wrap: wrap;
     gap: 5px;
+    row-gap: 12px;
     font-size: 21px;
   }
 
   .spacecrew-brand > small {
-    margin-left: 8px;
-    padding-left: 9px;
+    flex-basis: 100%;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
     font-size: 13px;
   }
 

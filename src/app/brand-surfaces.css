@@ -1,4 +1,4 @@
-/* Reuse the waitlist's ambient purple shade on public brand surfaces. */
+/* Ambient purple shade for auth, information, and supporting brand surfaces. */
 :root {
   --brand-ambient-background:
     radial-gradient(ellipse at 2% 4%, #9333ea4d, transparent 55%),
@@ -11,7 +11,6 @@
 
 :root .auth-surface,
 :root .marketing-hero-surface,
-:root .waitlist-hero,
 :root .information-page > .page-heading,
 :root .freelancer-waitlist-promo,
 :root .cta-banner {

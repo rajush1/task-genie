@@ -4,10 +4,7 @@
 }
 .waitlist-hero {
   color: #fff;
-  background:
-    radial-gradient(ellipse at 2% 4%, #9333ea4d, transparent 55%),
-    radial-gradient(ellipse at 40% 98%, #ec489933, transparent 42%),
-    linear-gradient(130deg, #151020, #151325 60%, #0f1020);
+  background: var(--grad);
 }
 .waitlist-hero-grid {
   display: grid;
@@ -502,6 +499,40 @@
 .auth-waitlist-note .text-link {
   font-size: 13px;
 }
+
+/* Match the approved bright homepage palette without recoloring the form. */
+:root:not([data-theme="dark"])
+  .waitlist-story
+  :is(
+    .waitlist-kicker,
+    h1 em,
+    p,
+    .waitlist-story-benefits svg,
+    .waitlist-story-benefits strong,
+    .waitlist-story-benefits small,
+    .waitlist-path,
+    .waitlist-path strong,
+    .waitlist-story-note a
+  ) {
+  color: #fff;
+}
+:root:not([data-theme="dark"]) .waitlist-kicker > span {
+  background: #fff;
+  box-shadow: 0 0 0 5px #ffffff26;
+}
+:root:not([data-theme="dark"]) .waitlist-path {
+  border-color: #ffffff50;
+}
+:root:not([data-theme="dark"]) .waitlist-story .waitlist-jump {
+  color: #7e22ce;
+  background: #fff;
+  border-color: #fff;
+}
+:root:not([data-theme="dark"]) .waitlist-story .waitlist-jump:hover {
+  background: #faf5ff;
+  border-color: #faf5ff;
+}
+
 @media (max-width: 1150px) {
   .waitlist-hero-grid {
     gap: 35px;

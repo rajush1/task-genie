@@ -58,7 +58,9 @@ Every route uses the supplied SpaceCrew-inspired Task Genie skin. Its extracted 
 
 Shared form spacing, custom native-select chevrons, mobile control sizing, and dark inset surfaces are normalized in `src/app/ui-polish.css`, loaded after page-specific styles. Keep dropdown arrow gutters intact when adding new select controls. Auth cards use explicit inner padding; password fields show a unified focus state. The UI pass covers all 53 product routes at desktop, tablet, and narrow-phone sizes, with light/dark spot checks for interactive forms and inset panels.
 
-`src/app/brand-surfaces.css` shares the waitlist's ambient purple/pink background with signup/login, public marketing heroes, information-page headers, and promotional banners. It follows the component styles to preserve heading and body-text contrast in both themes. Forms, pricing controls, and data cards retain their neutral themed surfaces.
+The Waitlist and SpaceCrew landing-page heroes share the homepage's `--grad` token: the approved bright purple-to-pink gradient in light mode and the supplied indigo gradient in dark mode. Light-mode hero copy is white with white primary actions; SpaceCrew's final call to action uses the skin's `--grad-dark` pre-footer palette. Forms and data cards retain their neutral themed surfaces.
+
+`src/app/brand-surfaces.css` keeps the ambient purple/pink background on signup/login, other public marketing heroes, information-page headers, and promotional banners. It follows the component styles to preserve heading and body-text contrast in both themes.
 
 `src/app/readability.css` follows the skin with 16px form inputs and auth copy, 15px descriptive text, and 14px labels and actions. Compact metadata has a 13px floor across feature styles. Mobile role cards, conversations, filters, and step labels reflow to make room for the larger text; the existing headline scale and color palette are unchanged.
 
